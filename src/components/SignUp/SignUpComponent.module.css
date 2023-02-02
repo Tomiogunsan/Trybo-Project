@@ -1,0 +1,12 @@
+input:focus ~ label,
+	input:not(:focus):valid ~ .label {
+		top: -15px;
+		bottom: 0px;
+		left: 0px;
+		font-size: 10px;
+		opacity: 1;
+		color: #404040;
+      
+      
+	}
+
