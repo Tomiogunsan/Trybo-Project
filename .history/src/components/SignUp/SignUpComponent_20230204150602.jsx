@@ -69,7 +69,7 @@ export default function SignUpComponent() {
               className="outline-none  "
             />
           </div>
-         
+          {(formData.email === '' ) ? <p>Required</p> : ''}
 
           <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
             <input

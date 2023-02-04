@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -17,32 +17,21 @@ export default function SignUpComponent() {
     }
   );
   const {email, firstName, lastName, password} = formData;
-    const emailRef = useRef()
-    const firstNameRef = useRef()
-    const lastNameRef = useRef()
-    const passwordRef = useRef()
-   
 
+  function handleChange(e){
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }))
+    // console.log(e.target.value)
+  }
 
   function handleSubmit(e) {
     e.preventDefault()
-    const enteredEmail = emailRef.current.value;
-    const enteredFirstName = firstNameRef.current.value;
-    const enteredLastName = lastNameRef.current.value;
-    const enteredPassword = passwordRef.current.value;
-    setFormData({
-      email: enteredEmail,
-      firstName: enteredFirstName,
-      lastName: enteredLastName,
-      password: enteredPassword,
-    })
-
-    console.log(enteredPassword)
-// validation
-    // if(enteredEmail.trim() === ''){
-    //   console.log('required')
-    // }
-    
+    handleChange()
+    if(e.target.value === ''){
+      clg()
+    }
   }
 
   return (
@@ -59,25 +48,24 @@ export default function SignUpComponent() {
           onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center w-full"
         >
-          <div className=" mt-4 mb-4 border border-[#556987] p-4 rounded-sm  w-full md:w-[50%]">
+          <div className="border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] mt-4 mb-4 ">
             <input
               type="email"
               id="email"
               placeholder="Email address"
-              ref={emailRef}
-              // onChange={handleChange}
-              className="outline-none  "
+              value={email}
+              onChange={handleChange}
+              className="outline-none"
             />
           </div>
-         
 
           <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
             <input
               type="text"
               id="firstName"
               placeholder="First name"
-              ref={firstNameRef}
-              // onChange={handleChange}
+              value={firstName}
+              onChange={handleChange}
               className="outline-none"
             />
           </div>
@@ -87,8 +75,8 @@ export default function SignUpComponent() {
               type="text"
               id="lastName"
               placeholder="Last Name"
-              ref={lastNameRef}
-              // onChange={handleChange}
+              value={lastName}
+              onChange={handleChange}
               className="outline-none"
             />
           </div>
@@ -99,8 +87,8 @@ export default function SignUpComponent() {
               type={showPassword ? 'text' : 'password'}
               id="password"
               placeholder="Password"
-              ref={passwordRef}
-              // onChange={handleChange}
+              value={password}
+              onChange={handleChange}
               className="outline-none"
             />
             {showPassword ? (

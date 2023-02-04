@@ -21,15 +21,11 @@ export default function SignUpComponent() {
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const passwordRef = useRef()
-   
-
+  
 
   function handleSubmit(e) {
     e.preventDefault()
-    const enteredEmail = emailRef.current.value;
-    const enteredFirstName = firstNameRef.current.value;
-    const enteredLastName = lastNameRef.current.value;
-    const enteredPassword = passwordRef.current.value;
+    
     setFormData({
       email: enteredEmail,
       firstName: enteredFirstName,
@@ -37,7 +33,7 @@ export default function SignUpComponent() {
       password: enteredPassword,
     })
 
-    console.log(enteredPassword)
+    // console.log(enteredPassword)
 // validation
     // if(enteredEmail.trim() === ''){
     //   console.log('required')
@@ -69,7 +65,7 @@ export default function SignUpComponent() {
               className="outline-none  "
             />
           </div>
-         
+          {(formData.email === '' ) ? <p>Required</p> : ''}
 
           <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
             <input

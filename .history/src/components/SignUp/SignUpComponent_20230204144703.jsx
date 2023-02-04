@@ -21,8 +21,7 @@ export default function SignUpComponent() {
     const firstNameRef = useRef()
     const lastNameRef = useRef()
     const passwordRef = useRef()
-   
-
+  
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -30,18 +29,13 @@ export default function SignUpComponent() {
     const enteredFirstName = firstNameRef.current.value;
     const enteredLastName = lastNameRef.current.value;
     const enteredPassword = passwordRef.current.value;
+
     setFormData({
       email: enteredEmail,
       firstName: enteredFirstName,
       lastName: enteredLastName,
-      password: enteredPassword,
+      password: 
     })
-
-    console.log(enteredPassword)
-// validation
-    // if(enteredEmail.trim() === ''){
-    //   console.log('required')
-    // }
     
   }
 
@@ -59,17 +53,16 @@ export default function SignUpComponent() {
           onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center w-full"
         >
-          <div className=" mt-4 mb-4 border border-[#556987] p-4 rounded-sm  w-full md:w-[50%]">
+          <div className="border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] mt-4 mb-4 ">
             <input
               type="email"
               id="email"
               placeholder="Email address"
               ref={emailRef}
               // onChange={handleChange}
-              className="outline-none  "
+              className="outline-none"
             />
           </div>
-         
 
           <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
             <input

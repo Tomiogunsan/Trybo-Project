@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
@@ -16,34 +16,9 @@ export default function SignUpComponent() {
       password: '',
     }
   );
-  const {email, firstName, lastName, password} = formData;
-    const emailRef = useRef()
-    const firstNameRef = useRef()
-    const lastNameRef = useRef()
-    const passwordRef = useRef()
-   
+  const {email, firstName, last}
 
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    const enteredEmail = emailRef.current.value;
-    const enteredFirstName = firstNameRef.current.value;
-    const enteredLastName = lastNameRef.current.value;
-    const enteredPassword = passwordRef.current.value;
-    setFormData({
-      email: enteredEmail,
-      firstName: enteredFirstName,
-      lastName: enteredLastName,
-      password: enteredPassword,
-    })
-
-    console.log(enteredPassword)
-// validation
-    // if(enteredEmail.trim() === ''){
-    //   console.log('required')
-    // }
-    
-  }
+  // function handleSubmit() {}
 
   return (
    
@@ -56,27 +31,26 @@ export default function SignUpComponent() {
           Create an account
         </h2>
         <form
-          onSubmit={handleSubmit}
+          
           className="flex flex-col items-center justify-center w-full"
         >
-          <div className=" mt-4 mb-4 border border-[#556987] p-4 rounded-sm  w-full md:w-[50%]">
+          <div className="border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] mt-4 mb-4 ">
             <input
               type="email"
               id="email"
               placeholder="Email address"
-              ref={emailRef}
+              // value={email}
               // onChange={handleChange}
-              className="outline-none  "
+              className="outline-none"
             />
           </div>
-         
 
           <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
             <input
               type="text"
               id="firstName"
               placeholder="First name"
-              ref={firstNameRef}
+              // value={firstName}
               // onChange={handleChange}
               className="outline-none"
             />
@@ -87,7 +61,7 @@ export default function SignUpComponent() {
               type="text"
               id="lastName"
               placeholder="Last Name"
-              ref={lastNameRef}
+              // value={lastName}
               // onChange={handleChange}
               className="outline-none"
             />
@@ -99,7 +73,7 @@ export default function SignUpComponent() {
               type={showPassword ? 'text' : 'password'}
               id="password"
               placeholder="Password"
-              ref={passwordRef}
+              // value={password}
               // onChange={handleChange}
               className="outline-none"
             />
