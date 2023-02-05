@@ -44,8 +44,7 @@ export default function SignUpComponent() {
       const auth = getAuth()
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
       updateProfile(auth.currentUser, {
-        displayName: firstName,
-        
+        di
       })
       const user = userCredential.user
       console.log(user);

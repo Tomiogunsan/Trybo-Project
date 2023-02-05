@@ -27,7 +27,7 @@ export default function ForgetPassword() {
               placeholder="Email address"
               // value={email}
               // onChange={handleChange}
-              className="outline-none w-full"
+              className="outline-none "
             />
             </div>
             <button

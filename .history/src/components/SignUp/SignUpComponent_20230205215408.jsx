@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 
-import { db } from '../../firebase'
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai'
 import OtherFormOfAuth from '../OtherFormOfAuth'
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 export default function SignUpComponent() {
   const [showPassword, setShowPassword] = useState(false)
@@ -26,7 +24,7 @@ export default function SignUpComponent() {
    
 
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault()
     const enteredEmail = emailRef.current.value;
     const enteredFirstName = firstNameRef.current.value;
@@ -40,18 +38,10 @@ export default function SignUpComponent() {
     })
 
     console.log(enteredPassword)
-    try {
-      const auth = getAuth()
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-      updateProfile(auth.currentUser, {
-        displayName: firstName,
-        
-      })
-      const user = userCredential.user
-      console.log(user);
-    } catch (error) {
-      console.log(error);
-    }
+// validation
+    // if(enteredEmail.trim() === ''){
+    //   console.log('required')
+    // }
     
   }
 
@@ -99,7 +89,7 @@ export default function SignUpComponent() {
               placeholder="Last Name"
               ref={lastNameRef}
               // onChange={handleChange}
-              className="outline-none w-full"
+              className="outline-none "
             />
           </div>
 
@@ -111,7 +101,7 @@ export default function SignUpComponent() {
               placeholder="Password"
               ref={passwordRef}
               // onChange={handleChange}
-              className="outline-none w-full"
+              className="outline-none"
             />
             {showPassword ? (
               <AiFillEyeInvisible

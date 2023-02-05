@@ -28,7 +28,7 @@ export default function SignIn() {
               placeholder="Email address"
               // value={email}
               // onChange={handleChange}
-              className="outline-none w-full"
+              className="outline-none"
             />
           </div>
 
@@ -39,7 +39,7 @@ export default function SignIn() {
               placeholder="Password"
               // value={password}
               // onChange={handleChange}
-              className="outline-none w-full" 
+              className="outline-none" 
             />
             {showPassword ? (
               <AiFillEyeInvisible
