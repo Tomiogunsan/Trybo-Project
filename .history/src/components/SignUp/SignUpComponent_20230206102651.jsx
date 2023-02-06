@@ -12,11 +12,9 @@ import {
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner'
 
 export default function SignUpComponent() {
   const [showPassword, setShowPassword] = useState(false)
-  const[loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -58,9 +56,6 @@ export default function SignUpComponent() {
       delete formDataCopy.password
       formDataCopy.timestamp = serverTimestamp();
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
-      setLoading(true)
-      // toast.success('sign up was sucessful')
-      setLoading(false)
       navigate('/')
     } catch (error) {
       toast.error('Something went wrong with the registration')
@@ -68,7 +63,7 @@ export default function SignUpComponent() {
   }
 
   return (
-  (loading) ? <Spinner/> :  (<div className="md:shadow-xl md:rounded-lg md:max-w-4xl md:mx-auto mt-8">
+    <div className="md:shadow-xl md:rounded-lg md:max-w-4xl md:mx-auto mt-8">
       <div className="flex flex-col items-center justify-center  mt-8 px-6">
         <h2
           className="font-semibold text-[#1a1e24] text-[25px] 
@@ -149,6 +144,6 @@ export default function SignUpComponent() {
         <p className="text-sm py-4">or continue with</p>
         <OtherFormOfAuth />
       </div>
-    </div>)
+    </div>
   )
 }

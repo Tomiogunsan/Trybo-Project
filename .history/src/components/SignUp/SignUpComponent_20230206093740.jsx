@@ -9,40 +9,35 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
-import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner'
 
 export default function SignUpComponent() {
   const [showPassword, setShowPassword] = useState(false)
-  const[loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
-    name: '',
-
+    firstName: '',
+    lastName: '',
     password: '',
   })
-  const { email, name, password } = formData
-  const navigate = useNavigate()
+  const { email, firstName,  password } = formData
   const emailRef = useRef()
   const nameRef = useRef()
-
+ 
   const passwordRef = useRef()
 
   async function handleSubmit(e) {
     e.preventDefault()
     const enteredEmail = emailRef.current.value
-    const enteredFirstName = nameRef.current.value
-
+    const enteredFirstName = firstNameRef.current.value
+    const enteredLastName = lastNameRef.current.value
     const enteredPassword = passwordRef.current.value
     setFormData({
       email: enteredEmail,
-      name: enteredFirstName,
-
+      firstName: enteredFirstName,
+      
       password: enteredPassword,
     })
-    console.log(password);
+
+    console.log(enteredPassword)
     try {
       const auth = getAuth()
       const userCredential = await createUserWithEmailAndPassword(
@@ -51,24 +46,17 @@ export default function SignUpComponent() {
         password,
       )
       updateProfile(auth.currentUser, {
-        displayName: name,
+        displayName: firstName,
       })
       const user = userCredential.user
-      const formDataCopy = {...formData}
-      delete formDataCopy.password
-      formDataCopy.timestamp = serverTimestamp();
-      await setDoc(doc(db, 'users', user.uid), formDataCopy)
-      setLoading(true)
-      // toast.success('sign up was sucessful')
-      setLoading(false)
-      navigate('/')
+      console.log(user)
     } catch (error) {
-      toast.error('Something went wrong with the registration')
+      console.log(error)
     }
   }
 
   return (
-  (loading) ? <Spinner/> :  (<div className="md:shadow-xl md:rounded-lg md:max-w-4xl md:mx-auto mt-8">
+    <div className="md:shadow-xl md:rounded-lg md:max-w-4xl md:mx-auto mt-8">
       <div className="flex flex-col items-center justify-center  mt-8 px-6">
         <h2
           className="font-semibold text-[#1a1e24] text-[25px] 
@@ -101,6 +89,8 @@ export default function SignUpComponent() {
               className="outline-none w-full"
             />
           </div>
+
+          
 
           <div className=" relative border border-[#556987] p-4 rounded-sm mb-6 w-full md:w-[50%] ">
             <input
@@ -149,6 +139,6 @@ export default function SignUpComponent() {
         <p className="text-sm py-4">or continue with</p>
         <OtherFormOfAuth />
       </div>
-    </div>)
+    </div>
   )
 }

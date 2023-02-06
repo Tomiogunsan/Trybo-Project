@@ -12,7 +12,6 @@ import {
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import Spinner from '../../components/Spinner'
 
 export default function SignUpComponent() {
   const [showPassword, setShowPassword] = useState(false)
@@ -149,6 +148,6 @@ export default function SignUpComponent() {
         <p className="text-sm py-4">or continue with</p>
         <OtherFormOfAuth />
       </div>
-    </div>)
+    </div>
   )
 }
