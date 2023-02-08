@@ -32,8 +32,8 @@ export default function Profile() {
         }))
     }
 
-   async function onSubmit(){
-        
+   async function onSubmit(e){
+        e.preventDefault()
         try {
             if(auth.currentUser.displayName !== name){
                 // update displayName in firebase auth
@@ -47,7 +47,7 @@ export default function Profile() {
                     name,
                 })
             }
-            toast.success('Profile details updated')
+            
         } catch (error) {
            toast.error('Could not update the profile details') 
         }

@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import {BsFillPersonFill } from 'react-icons/bs'
 import Dashboard from '../components/Dashboard'
-import {getAuth, updateProfile} from 'firebase/auth'
+import {getAuth} from 'firebase/auth'
 import Settings from '../components/Settings'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import {doc, updateDoc} from 'firebase/firestore'
-import { db } from '../firebase';
 
 
 
 export default function Profile() {
     const auth = getAuth()
     const navigate = useNavigate()
-    const[changeDetail, setChangeDetail] = useState(false)
     const[formData, setFormData] = useState({
         name: auth.currentUser.displayName,
         email: auth.currentUser.email,
@@ -23,34 +19,6 @@ export default function Profile() {
     function  onLogOut(){
         auth.signOut()
         navigate('/')
-    }
-
-    function onChange(e){
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.id]: e.target.value,
-        }))
-    }
-
-   async function onSubmit(){
-        
-        try {
-            if(auth.currentUser.displayName !== name){
-                // update displayName in firebase auth
-                await updateProfile(auth.currentUser, {
-                    displayName: name,
-                });
-                // update name in the firestore
-                const docRef = doc(db, 'users', auth.currentUser.uid)
-                await updateDoc(docRef, {
-
-                    name,
-                })
-            }
-            toast.success('Profile details updated')
-        } catch (error) {
-           toast.error('Could not update the profile details') 
-        }
     }
     
   return (
@@ -66,11 +34,9 @@ export default function Profile() {
                     </div>
                     <p className='font-semibold text-lg mt-4'>Basics</p>
                     <form className='flex flex-col py-4' >
-                        <input type='text' id='name' 
-                        disabled ={!changeDetail}
-                        onChange={onChange}
+                        <input type='text' id='name' disabled 
                         value={name}
-                        className={`w-1/2 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md ${changeDetail && 'bg-red-200'}`}
+                        className='w-1/2 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md'
                         />
                         <input type='email' id='email' disabled 
                         value={email}
@@ -78,12 +44,9 @@ export default function Profile() {
                         />
                         
                             <p className='mt-4 text-lg'>Do you want to change your name?
-                            <span onClick={() => {
-                                changeDetail && onSubmit();
-                            
-                            setChangeDetail((prevState) => !prevState)}}
-                            className='text-red-600 ml-4 font-semibold hover:text-red-800 cursor-pointer'>
-                               {changeDetail ? 'Apply change' : 'Edit'}
+                            <span 
+                            className='text-blue-600 ml-4 font-semibold hover:text-blue-800 cursor-pointer'>
+                                Edit
                             </span>
                             </p>
                             <p onClick={onLogOut} className='mt-8 text-lg font-semibold text-blue-600 hover:text-blue-800 cursor-pointer'>Sign out</p>

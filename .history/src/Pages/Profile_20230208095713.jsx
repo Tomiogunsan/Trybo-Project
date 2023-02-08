@@ -32,7 +32,7 @@ export default function Profile() {
         }))
     }
 
-   async function onSubmit(){
+   async function onSubmit(e){
         
         try {
             if(auth.currentUser.displayName !== name){

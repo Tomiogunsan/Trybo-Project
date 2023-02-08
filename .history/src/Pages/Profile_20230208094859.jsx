@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import {BsFillPersonFill } from 'react-icons/bs'
 import Dashboard from '../components/Dashboard'
-import {getAuth, updateProfile} from 'firebase/auth'
+import {getAuth} from 'firebase/auth'
 import Settings from '../components/Settings'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
-import {doc, updateDoc} from 'firebase/firestore'
-import { db } from '../firebase';
 
 
 
@@ -32,25 +29,9 @@ export default function Profile() {
         }))
     }
 
-   async function onSubmit(){
+    function onSubmit(e){
+        e.preventDefault()
         
-        try {
-            if(auth.currentUser.displayName !== name){
-                // update displayName in firebase auth
-                await updateProfile(auth.currentUser, {
-                    displayName: name,
-                });
-                // update name in the firestore
-                const docRef = doc(db, 'users', auth.currentUser.uid)
-                await updateDoc(docRef, {
-
-                    name,
-                })
-            }
-            toast.success('Profile details updated')
-        } catch (error) {
-           toast.error('Could not update the profile details') 
-        }
     }
     
   return (

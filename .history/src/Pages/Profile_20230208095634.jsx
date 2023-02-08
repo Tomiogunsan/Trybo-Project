@@ -32,8 +32,8 @@ export default function Profile() {
         }))
     }
 
-   async function onSubmit(){
-        
+   async function onSubmit(e){
+        e.preventDefault()
         try {
             if(auth.currentUser.displayName !== name){
                 // update displayName in firebase auth
