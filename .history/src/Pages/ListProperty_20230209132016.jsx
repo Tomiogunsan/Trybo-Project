@@ -49,7 +49,7 @@ function onChange(e){
   let boolean = null;
   if(e.target.checked ){
   setFormData(true)
-  
+  console.log(e.target.checked);
   }
   // files
   if(e.target.files){
@@ -57,7 +57,6 @@ function onChange(e){
       ...prevState,
       images: e.target.files,
     }))
-    console.log(e.target.files);
   }
   // Text/Boolen/Number
   if(!e.target.files && !e.target.checked){
@@ -65,22 +64,22 @@ function onChange(e){
       ...prevState,
       [e.target.id]: boolean ?? e.target.value
     }))
-    
+    console.log(e.target.value);
   }
 }
 
 async function onSubmit(){
 setLoading(true);
-if (images?.length > 6) {
+if(images.length > 6){
   setLoading(false);
-  toast.error("maximum of 6 images are allowed");
+  toast.error('maximum of 6 images are allowed ');
   return;
 }
 
 async function storeImage(image){
 return new Promise((resolve, reject) => {
   const storage = getStorage();
-  const filename = `${auth.currentUser.uid}-${image?.name}-${uuidv4()}`
+  const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`
   const storageRef = ref(storage, filename);
   const uploadTask = uploadBytesResumable(storageRef, image);
   uploadTask.on('state_changed', 
@@ -115,15 +114,14 @@ return new Promise((resolve, reject) => {
 
 }
 
-const imgUrls = await Promise?.all(
+const imgUrls = await Promise.all(
   [...images]?.map((image) => storeImage(image))
 ).catch((error) => {
   setLoading(false);
-  toast.error("Images not uploaded");
+  toast.error('Images not uploaded');
   return;
-  
 });
-console.log(imgUrls)
+console.log(img);
 }
 
 
@@ -191,9 +189,9 @@ if(loading){
                   Add images that displays your home photos max(6)
                 </p>
                 <input
-                id="images"
+                id='images'
                 onChange={onChange}
-                accept=".jpg,.png,.jpeg"
+                accept='.jpg,.png,.jpeg'
                 multiple
                 required
                   type="file"

@@ -57,7 +57,6 @@ function onChange(e){
       ...prevState,
       images: e.target.files,
     }))
-    console.log(e.target.files);
   }
   // Text/Boolen/Number
   if(!e.target.files && !e.target.checked){
@@ -193,7 +192,7 @@ if(loading){
                 <input
                 id="images"
                 onChange={onChange}
-                accept=".jpg,.png,.jpeg"
+                accept='.jpg,.png,.jpeg'
                 multiple
                 required
                   type="file"

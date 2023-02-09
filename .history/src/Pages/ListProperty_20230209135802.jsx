@@ -57,7 +57,7 @@ function onChange(e){
       ...prevState,
       images: e.target.files,
     }))
-    console.log(e.target.files);
+    console.log(e.target);
   }
   // Text/Boolen/Number
   if(!e.target.files && !e.target.checked){

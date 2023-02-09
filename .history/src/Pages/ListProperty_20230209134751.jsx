@@ -57,7 +57,6 @@ function onChange(e){
       ...prevState,
       images: e.target.files,
     }))
-    console.log(e.target.files);
   }
   // Text/Boolen/Number
   if(!e.target.files && !e.target.checked){
@@ -80,7 +79,7 @@ if (images?.length > 6) {
 async function storeImage(image){
 return new Promise((resolve, reject) => {
   const storage = getStorage();
-  const filename = `${auth.currentUser.uid}-${image?.name}-${uuidv4()}`
+  const filename = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`
   const storageRef = ref(storage, filename);
   const uploadTask = uploadBytesResumable(storageRef, image);
   uploadTask.on('state_changed', 
@@ -115,7 +114,7 @@ return new Promise((resolve, reject) => {
 
 }
 
-const imgUrls = await Promise?.all(
+const imgUrls = await Promise.all(
   [...images]?.map((image) => storeImage(image))
 ).catch((error) => {
   setLoading(false);
@@ -191,9 +190,9 @@ if(loading){
                   Add images that displays your home photos max(6)
                 </p>
                 <input
-                id="images"
+                id='images'
                 onChange={onChange}
-                accept=".jpg,.png,.jpeg"
+                accept='.jpg,.png,.jpeg'
                 multiple
                 required
                   type="file"
