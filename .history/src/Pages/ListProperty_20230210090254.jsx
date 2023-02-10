@@ -13,12 +13,8 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import Spinner from '../components/Spinner'
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
-import {db} from '../firebase'
-import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function ListProperty() {
-  const navigate = useNavigate()
   const auth = getAuth()
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
@@ -171,16 +167,7 @@ const imgUrls = await Promise?.all(
 });
 console.log(imgUrls);
 
-const formDataCopy = {
-  ...formData,
-  imgUrls,
-  timestamp: serverTimestamp(),
-};
-delete formDataCopy.images;
-const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
-setLoading(false)
-toast.success('Listing created');
-navigate('/')
+const form
 
 }
 

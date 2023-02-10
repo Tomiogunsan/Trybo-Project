@@ -13,12 +13,8 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import Spinner from '../components/Spinner'
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
-import {db} from '../firebase'
-import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function ListProperty() {
-  const navigate = useNavigate()
   const auth = getAuth()
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
@@ -126,7 +122,7 @@ if (images.length > 6) {
 async function storeImage(image){
 return new Promise((resolve, reject) => {
   const storage = getStorage();
-  const filename = `${auth?.currentUser?.uid}-${image?.name}-${uuidv4()}`
+  const filename = `${auth?.currentUser.uid}-${image?.name}-${uuidv4()}`
   const storageRef = ref(storage, filename);
   const uploadTask = uploadBytesResumable(storageRef, image);
   uploadTask?.on('state_changed', 
@@ -169,19 +165,7 @@ const imgUrls = await Promise?.all(
   return;
   
 });
-console.log(imgUrls);
-
-const formDataCopy = {
-  ...formData,
-  imgUrls,
-  timestamp: serverTimestamp(),
-};
-delete formDataCopy.images;
-const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
-setLoading(false)
-toast.success('Listing created');
-navigate('/')
-
+console.log(imgUrls)
 }
 
 

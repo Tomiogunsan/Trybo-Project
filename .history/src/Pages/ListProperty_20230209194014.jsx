@@ -13,12 +13,8 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import Spinner from '../components/Spinner'
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
-import {db} from '../firebase'
-import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function ListProperty() {
-  const navigate = useNavigate()
   const auth = getAuth()
   const [step, setStep] = useState(1)
   const [loading, setLoading] = useState(false);
@@ -50,10 +46,10 @@ parking,
 furnished,
 address,
 description} = formData
-
+console.log(formData);
 function onChange(e){
   const {id, value, checked} = e.target
-  
+  console.log(id, value, checked );
   if(id === 'images'){
     const image = e.target.files
     const imageArray = []
@@ -87,8 +83,29 @@ function onChange(e){
     })
   }
 
-
   
+  
+  // let boolean = null;
+  // if(e.target.checked ){
+  // setFormData(true)
+  
+  // }
+  // files
+  // if(e.target.files[0]){
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     images: e.target.files[0],
+  //   }))
+  //   console.log(e.target.files);
+  // }
+  // Text/Boolen/Number
+  // if(!e.target.files && !e.target.checked){
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.id]: boolean ?? e.target.value
+  //   }))
+    
+  // }
 }
 
 function validation(data){
@@ -104,7 +121,6 @@ function validation(data){
   setErrors(error)
   return validated
 }
-
 useEffect(() => {
 if (validationIsFired){
 validation(formData)
@@ -126,10 +142,10 @@ if (images.length > 6) {
 async function storeImage(image){
 return new Promise((resolve, reject) => {
   const storage = getStorage();
-  const filename = `${auth?.currentUser?.uid}-${image?.name}-${uuidv4()}`
+  const filename = `${auth.currentUser.uid}-${image?.name}-${uuidv4()}`
   const storageRef = ref(storage, filename);
   const uploadTask = uploadBytesResumable(storageRef, image);
-  uploadTask?.on('state_changed', 
+  uploadTask.on('state_changed', 
   (snapshot) => {
     // Observe state change events such as progress, pause, and resume
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
@@ -151,7 +167,7 @@ return new Promise((resolve, reject) => {
   () => {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    getDownloadURL(uploadTask?.snapshot?.ref)?.then((downloadURL) => {
+    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
      resolve( downloadURL);
     });
   }
@@ -161,7 +177,7 @@ return new Promise((resolve, reject) => {
 
 }
 
-const imgUrls = await Promise?.all(
+const imgUrls = await Promise.all(
   [...images]?.map((image) => storeImage(image))
 ).catch((error) => {
   setLoading(false);
@@ -169,19 +185,7 @@ const imgUrls = await Promise?.all(
   return;
   
 });
-console.log(imgUrls);
-
-const formDataCopy = {
-  ...formData,
-  imgUrls,
-  timestamp: serverTimestamp(),
-};
-delete formDataCopy.images;
-const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
-setLoading(false)
-toast.success('Listing created');
-navigate('/')
-
+console.log(imgUrls)
 }
 
 
@@ -261,9 +265,6 @@ if(loading){
               </div>
               <button
                 onClick={() => (
-                  // if(validation(formData.name, formData.email)){
-                    
-                  // }
                   setStep(2))}
                 className="bg-blue-600 text-white px-6  py-4 mb-2 mt-4 rounded-xl
           text-lg hover:bg-blue-800 shadow-md  active:bg-blue-900 active:shadow-lg 

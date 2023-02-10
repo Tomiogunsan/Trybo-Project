@@ -180,7 +180,7 @@ delete formDataCopy.images;
 const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
 setLoading(false)
 toast.success('Listing created');
-navigate('/')
+navigate(`/list-property/success`)
 
 }
 
