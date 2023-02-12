@@ -28,11 +28,11 @@ export default function ProfileSideBar() {
 
     
   return (
- <div className=' shadow-md fixed '>
+ <div className=' shadow-md fixed  '>
     {sideBar.map((item, idx) => (
         <div  key={idx} className={ `flex  p-8  ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
            <Link to={item.link} smooth={true}  
-           duration={1000} activeClass='active' className='flex'>
+           duration={1000} activeClass='' className='flex'>
            {item.label}
             <div className='ml-4 text-lg text-[#C0C0C0]'>{item.text}</div>
             </Link>

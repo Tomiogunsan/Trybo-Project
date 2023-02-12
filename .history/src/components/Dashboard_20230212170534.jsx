@@ -6,11 +6,11 @@ export default function Dashboard({children}) {
   return (
    <Container>
     <div className='md:flex '>
-       <div className='invisible md:visible md:w-[250px] md:h-[400px] ml-10'
+       <div className='invisible md:visible w-[250px] h-[400px] ml-10'
        >
         <ProfileSideBar />
         </div> 
-        <div className=' md:w-[calc(100vw-250px)]  ml-10 md:ml-[200px] '>
+        <div className=' md:w-[calc(100vw-250px)] ml-[200px] '>
             {children}
             </div>
     </div>

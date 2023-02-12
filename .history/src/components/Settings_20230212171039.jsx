@@ -25,7 +25,7 @@ export default function Settings() {
          onSubmit={onSubmit}
           className="flex flex-col"
         >
-          <div className=" w-[70%] md:w-1/2  mt-4 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md">
+          <div className=" w-md:w-1/2  mt-4 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md">
             <input
               type="email"
               id="email"

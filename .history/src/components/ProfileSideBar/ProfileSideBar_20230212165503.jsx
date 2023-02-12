@@ -28,7 +28,7 @@ export default function ProfileSideBar() {
 
     
   return (
- <div className=' shadow-md fixed '>
+ <div className=' shadow-mdfixed  hidden'>
     {sideBar.map((item, idx) => (
         <div  key={idx} className={ `flex  p-8  ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
            <Link to={item.link} smooth={true}  

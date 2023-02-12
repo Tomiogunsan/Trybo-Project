@@ -83,11 +83,11 @@ try {
                         disabled ={!changeDetail}
                         onChange={onChange}
                         value={name}
-                        className={` w-[70%] md:w-1/2 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md ${changeDetail && 'bg-red-200'}`}
+                        className={`w-1/2 mb-4 px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md ${changeDetail && 'bg-red-200'}`}
                         />
                         <input type='email' id='email' disabled 
                         value={email}
-                        className=' w-[70%] md:w-1/2  px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md'
+                        className=' w-full md:w-1/2  px-4 py-4 border-[1px] border-[#c0c0c0] rounded-md'
                         />
                         
                             <p className='mt-4 text-lg'>Do you want to change your name?
