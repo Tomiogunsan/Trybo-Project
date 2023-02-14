@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
      
        </div>
-       <div className='px-4 mt-6' >
+       <div className='invisible md:visible mt-6' >
         <p className='font-semibold mb-4'>Get special offers, travel inspiration, and more from Trybo</p>
         <form action="" className='flex gap-4' onSubmit={handleSubmit}>
           <input type="text"

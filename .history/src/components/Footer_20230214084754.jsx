@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
      
        </div>
-       <div className='px-4 mt-6' >
+       <div className='invisible md:visible mt-6' >
         <p className='font-semibold mb-4'>Get special offers, travel inspiration, and more from Trybo</p>
         <form action="" className='flex gap-4' onSubmit={handleSubmit}>
           <input type="text"
@@ -65,12 +65,12 @@ export default function Footer() {
         <p className='text-blue-900 font-semibold'>Terms and Conditions · Privacy Policy · Your Privacy Choices</p>
       </div>
       <div className='flex gap-4'>
-        <BsFacebook className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
-        <BsInstagram className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
-        <BsLinkedin className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
-        <FaPinterest className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
-        <BsTwitter className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
-        <BsYoutube className='bg-gray-300 text-4xl px-2 rounded-full text-blue-900 cursor-pointer'/>
+        <BsFacebook className=''/>
+        <BsInstagram />
+        <BsLinkedin />
+        <FaPinterest />
+        <BsTwitter />
+        <BsYoutube />
       </div>
     </div>
     </Container>
