@@ -230,7 +230,7 @@ if(loading){
         <div className="absolute w-full h-full left-0 top-0 bg-gray-500/30 ">
           {step === 1 ? (
             <div
-              className="absolute top-[80px] md:right-[100px] lg:right-[300px] md:top-[10%] bg-white w-full md:w-[60%] lg:max-w-[35%] rounded-xl px-8 
+              className="absolute top-[80px] md:right-[300px] md:top-[10%] bg-white w-full lg:max-w-[35%] rounded-xl px-8 
           shadow-lg shadow-black"
             >
               <h2 className="text-lg py-4 font-semibold text-[#1a1e24]">

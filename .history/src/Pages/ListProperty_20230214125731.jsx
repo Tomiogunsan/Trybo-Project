@@ -30,8 +30,8 @@ export default function ListProperty() {
     phoneNumber: '',
     images: [],
     price: 0,
-    bedrooms: 0,
-    bathrooms: 0,
+    bedrooms: 1,
+    bathrooms: 1,
     parking: false,
     furnished: false,
     address: '',
@@ -106,23 +106,9 @@ function validation(data){
       validated = false
       }
     }
-    if(data[field] === 0){
-      error[field] = `${field} is required`
-      validated = false
-    }
-    if(field === 'parking'){
-      if(data[field] === false){
-        error[field] = `${field} is required`
-      }
-    }
-    if(field === 'furnished'){
-      if(data[field] === false){
-        error[field] = `${field} is required`
-      }
-    }
   })
   setErrors(error)
-  
+  console.log(error);
   return validated
 }
 
@@ -164,14 +150,10 @@ return new Promise((resolve, reject) => {
         console.log('Upload is running');
         break;
     }
-  
   }, 
   (error) => {
     // Handle unsuccessful uploads
     reject(error)
-    setLoading(false);
-    toast.error("Images not uploaded");
-    return;
   }, 
   () => {
     // Handle successful uploads on complete
@@ -189,10 +171,12 @@ return new Promise((resolve, reject) => {
 const imgUrls = await Promise?.all(
   [...images]?.map((image) => storeImage(image))
 ).catch((error) => {
- 
+  setLoading(false);
+  toast.error("Images not uploaded");
+  return;
   
 });
-// console.log(imgUrls);
+console.log(imgUrls);
 
 const formDataCopy = {
   ...formData,
@@ -204,7 +188,6 @@ const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
 setLoading(false)
 toast.success('Listing created');
 navigate('/')
-
 
 }
 
@@ -230,7 +213,7 @@ if(loading){
         <div className="absolute w-full h-full left-0 top-0 bg-gray-500/30 ">
           {step === 1 ? (
             <div
-              className="absolute top-[80px] md:right-[100px] lg:right-[300px] md:top-[10%] bg-white w-full md:w-[60%] lg:max-w-[35%] rounded-xl px-8 
+              className="absolute top-[80px] md:right-[300px] md:top-[10%] bg-white w-full md:max-w-[35%] rounded-xl px-8 
           shadow-lg shadow-black"
             >
               <h2 className="text-lg py-4 font-semibold text-[#1a1e24]">
@@ -238,7 +221,6 @@ if(loading){
                 property—with Trybo. Becoming a host is free, fast, and easy.
               </h2>
               <div className="flex flex-col">
-                <div className='mb-4'>
                 <input
                 id='name'
                 value={name}
@@ -246,12 +228,10 @@ if(loading){
                   placeholder="Name"
                   type="text"
                   required
-                  className="w-full  px-4 py-4 border-[1px] border-[#556987] rounded-md "
+                  className="w-full  px-4 py-4 border-[1px] border-[#556987] rounded-md mb-6"
                 />
-                {errors.name && <span className='text-red-600 text-sm capitalize'>{errors.name }</span>}
-                </div>
-               <div className='mb-4'>
-               <input
+                {errors.name && <span className='text-red-600 capitalize'>{errors.name }</span>}
+                <input
                  id='email'
                  value={email}
                  onChange={onChange}
@@ -259,39 +239,32 @@ if(loading){
                   type="email"
                   required
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
-            rounded-md "
+            rounded-md mb-6"
                 />
-                {errors.email && <span className='text-red-600 text-sm capitalize'>{errors.email }</span>}
-               </div>
-                <div className='mb-6'>
+                {errors.email && <span className='text-red-600 capitalize'>{errors.email }</span>}
                 <PhoneInput
-                
+                id='phoneNumber'
                 value={phoneNumber}
                   placeholder="Phone number"
-                  
+                  // onChange={onChange}
                   onChange={(phone)=> {
                    const e = {
                       target:{
                         id : 'phoneNumber',
-                        value: phone
+                        
                       }
                     }
-                    onChange(e)
-                    }}
+                    console.log(phone)}}
                   international="true"
                   defaultCountry="US"
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
-            rounded-md "
+            rounded-md mb-6"
                 />
-                {errors.phoneNumber && <span className='text-red-600 text-sm capitalize'>{errors.phoneNumber }</span>}
-                </div>
-                
           
                 <p className="mb-2">
                   Add images that displays your home photos max(6)
                 </p>
-               <div className='mb-6'>
-               <input
+                <input
                 id="images"
                 onChange={onChange}
                 accept=".jpg,.png,.jpeg"
@@ -299,11 +272,9 @@ if(loading){
                 required
                   type="file"
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
-      rounded-md"
+      rounded-md mb-6"
                 />
-               {errors.images && <span className='text-red-600 text-sm capitalize'>{errors.images }</span>}
-               </div>
-                
+               {errors.images && <span className='text-red-600 capitalize'>{errors.images }</span>}
               </div>
               <button
                 onClick={() => {
@@ -311,7 +282,6 @@ if(loading){
                     email:formData.email,
                     name: formData.name,
                     images: formData.images,
-                    id: formData.phoneNumber,
                   }
                   if(validation(dataToValidate)){
                     setStep(2)
@@ -332,7 +302,6 @@ if(loading){
               >
                 <div className="mt-6">
                   <p className="text-lg font-semibold text-[#1a1e24]">Price</p>
-                  <div className='mb-2'>
                   <input
                     type="number"
                     id="price"
@@ -341,11 +310,8 @@ if(loading){
                     min="0"
                     max="50"
                     required
-                    className="w-full  px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
+                    className="w-full mb-2 px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                   />
-                  {errors.price && <span className='text-red-600 text-sm capitalize'>{errors.price }</span>}
-                  </div>
-                 
                 </div>
                 <div className="flex w-full space-x-6 mb-6 ">
                   <div className="w-1/2">
@@ -360,7 +326,6 @@ if(loading){
                       required
                       className=" w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md"
                     />
-                    {errors.bedrooms && <span className='text-red-600 text-sm capitalize'>{errors.bedrooms }</span>}
                   </div>
                   <div className="w-1/2">
                     <p className="text-lg font-semibold text-[#1a1e24]">
@@ -376,13 +341,10 @@ if(loading){
                       required
                       className="  w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md"
                     />
-                    {errors.bathrooms && <span className='text-red-600 text-sm capitalize'>{errors.bathrooms }</span>}
                   </div>
                 </div>
-                <div>
-                <div className='flex justify-between mb-4'>
-                  <div>
-                  <div className='flex gap-2'>
+               <div className='flex justify-between mb-4'>
+               <div className='flex gap-2'>
                <input type='checkbox' 
                id='parking'
                value={parking}
@@ -390,13 +352,8 @@ if(loading){
               
                />
                   <p className="text-lg font-semibold text-[#1a1e24]">Parkings</p>
-                  
-                  
+                 
                 </div>
-                {errors.parking && <span className='text-red-600 text-sm capitalize'>{errors.parking }</span>}
-                  </div>
-               
-                <div>
                 <div className='flex gap-2'>
                 <input type='checkbox'
                 id='furnished'
@@ -404,22 +361,10 @@ if(loading){
                 onChange={onChange}
                 />
                   <p className="text-lg font-semibold text-[#1a1e24]">Furnished</p>
-                 
-                
+                  
                 </div>
-                {errors.furnished && <span className='text-red-600 text-sm capitalize'>{errors.furnished }</span>}
-                </div>
-                
-                
                </div>
-               
-                
-              
-                </div>
-          
-               
                 <p className="text-lg  font-semibold">Address</p>
-                <div className='mb-2'>
                 <input
                   type="text"
                   id="address"
@@ -427,13 +372,9 @@ if(loading){
                   onChange={onChange}
                   placeholder="Address"
                   required
-                  className="w-full px-4 py-4  text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
+                  className="w-full px-4 py-4 mb-2 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                 />
-                {errors.address && <span className='text-red-600 text-sm capitalize'>{errors.address }</span>}
-                </div>
-             
                 <p className="text-lg font-semibold mb-2">Description</p>
-                <div className='mb-4'>
                 <textarea
                   type="text"
                   id="description"
@@ -441,16 +382,11 @@ if(loading){
                   onChange={onChange}
                   placeholder="Description"
                   required
-                  className="w-full  px-4 py-2 text-xl text-gray-700 bg-white  border-[1px] border-[#556987]  rounded-md"
+                  className="w-full mb-4 px-4 py-2 text-xl text-gray-700 bg-white  border-[1px] border-[#556987]  rounded-md"
                 />
-                {errors.description && <span className='text-red-600 text-sm capitalize'>{errors.description }</span>}
-                </div>
-                
                 <div className="flex justify-between">
                   <button
-                    onClick={() => {
-                      
-                      setStep(1)}}
+                    onClick={() => setStep(1)}
                     className="bg-blue-600 text-white px-6  py-4 mb-2 mt-4 rounded-xl
           text-lg hover:bg-blue-800 shadow-md  active:bg-blue-900 active:shadow-lg 
           transition duration-150 ease-in-out"
@@ -458,22 +394,7 @@ if(loading){
                     Previous
                   </button>
                   <button
-                  onClick={() => {
-                    const dataToValidate = {
-                      price: formData.price,
-                      beds: formData.beds,
-                      baths: formData.baths,
-                      parking: formData.parking,
-                      furnished: formData.furnished,
-                      address: formData.address,
-                      description: formData.description,
-
-                    }
-                    if(validation(dataToValidate)){
-                      onSubmit()
-                    }
-                    console.log(errors)
-                    }}
+                  onClick={onSubmit}
                     type="submit"
                     className="bg-blue-600 text-white px-6 capitalize py-4 mb-2 mt-4 rounded-xl
           text-lg hover:bg-blue-800 shadow-md  active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out"

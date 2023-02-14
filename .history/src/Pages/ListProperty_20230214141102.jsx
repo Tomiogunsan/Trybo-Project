@@ -106,20 +106,7 @@ function validation(data){
       validated = false
       }
     }
-    if(data[field] === 0){
-      error[field] = `${field} is required`
-      validated = false
-    }
-    if(field === 'parking'){
-      if(data[field] === false){
-        error[field] = `${field} is required`
-      }
-    }
-    if(field === 'furnished'){
-      if(data[field] === false){
-        error[field] = `${field} is required`
-      }
-    }
+    if(data[field] === )
   })
   setErrors(error)
   
@@ -230,7 +217,7 @@ if(loading){
         <div className="absolute w-full h-full left-0 top-0 bg-gray-500/30 ">
           {step === 1 ? (
             <div
-              className="absolute top-[80px] md:right-[100px] lg:right-[300px] md:top-[10%] bg-white w-full md:w-[60%] lg:max-w-[35%] rounded-xl px-8 
+              className="absolute top-[80px] md:right-[300px] md:top-[10%] bg-white w-full md:max-w-[35%] rounded-xl px-8 
           shadow-lg shadow-black"
             >
               <h2 className="text-lg py-4 font-semibold text-[#1a1e24]">
@@ -248,7 +235,7 @@ if(loading){
                   required
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] rounded-md "
                 />
-                {errors.name && <span className='text-red-600 text-sm capitalize'>{errors.name }</span>}
+                {errors.name && <span className='text-red-600  capitalize'>{errors.name }</span>}
                 </div>
                <div className='mb-4'>
                <input
@@ -261,7 +248,7 @@ if(loading){
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
             rounded-md "
                 />
-                {errors.email && <span className='text-red-600 text-sm capitalize'>{errors.email }</span>}
+                {errors.email && <span className='text-red-600 capitalize'>{errors.email }</span>}
                </div>
                 <div className='mb-6'>
                 <PhoneInput
@@ -283,7 +270,7 @@ if(loading){
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
             rounded-md "
                 />
-                {errors.phoneNumber && <span className='text-red-600 text-sm capitalize'>{errors.phoneNumber }</span>}
+                {errors.phoneNumber && <span className='text-red-600 capitalize'>{errors.phoneNumber }</span>}
                 </div>
                 
           
@@ -301,7 +288,7 @@ if(loading){
                   className="w-full  px-4 py-4 border-[1px] border-[#556987] 
       rounded-md"
                 />
-               {errors.images && <span className='text-red-600 text-sm capitalize'>{errors.images }</span>}
+               {errors.images && <span className='text-red-600 capitalize'>{errors.images }</span>}
                </div>
                 
               </div>
@@ -332,7 +319,6 @@ if(loading){
               >
                 <div className="mt-6">
                   <p className="text-lg font-semibold text-[#1a1e24]">Price</p>
-                  <div className='mb-2'>
                   <input
                     type="number"
                     id="price"
@@ -341,11 +327,8 @@ if(loading){
                     min="0"
                     max="50"
                     required
-                    className="w-full  px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
+                    className="w-full mb-2 px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                   />
-                  {errors.price && <span className='text-red-600 text-sm capitalize'>{errors.price }</span>}
-                  </div>
-                 
                 </div>
                 <div className="flex w-full space-x-6 mb-6 ">
                   <div className="w-1/2">
@@ -360,7 +343,6 @@ if(loading){
                       required
                       className=" w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md"
                     />
-                    {errors.bedrooms && <span className='text-red-600 text-sm capitalize'>{errors.bedrooms }</span>}
                   </div>
                   <div className="w-1/2">
                     <p className="text-lg font-semibold text-[#1a1e24]">
@@ -376,13 +358,10 @@ if(loading){
                       required
                       className="  w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md"
                     />
-                    {errors.bathrooms && <span className='text-red-600 text-sm capitalize'>{errors.bathrooms }</span>}
                   </div>
                 </div>
-                <div>
-                <div className='flex justify-between mb-4'>
-                  <div>
-                  <div className='flex gap-2'>
+               <div className='flex justify-between mb-4'>
+               <div className='flex gap-2'>
                <input type='checkbox' 
                id='parking'
                value={parking}
@@ -390,13 +369,8 @@ if(loading){
               
                />
                   <p className="text-lg font-semibold text-[#1a1e24]">Parkings</p>
-                  
-                  
+                 
                 </div>
-                {errors.parking && <span className='text-red-600 text-sm capitalize'>{errors.parking }</span>}
-                  </div>
-               
-                <div>
                 <div className='flex gap-2'>
                 <input type='checkbox'
                 id='furnished'
@@ -404,22 +378,10 @@ if(loading){
                 onChange={onChange}
                 />
                   <p className="text-lg font-semibold text-[#1a1e24]">Furnished</p>
-                 
-                
+                  
                 </div>
-                {errors.furnished && <span className='text-red-600 text-sm capitalize'>{errors.furnished }</span>}
-                </div>
-                
-                
                </div>
-               
-                
-              
-                </div>
-          
-               
                 <p className="text-lg  font-semibold">Address</p>
-                <div className='mb-2'>
                 <input
                   type="text"
                   id="address"
@@ -427,13 +389,9 @@ if(loading){
                   onChange={onChange}
                   placeholder="Address"
                   required
-                  className="w-full px-4 py-4  text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
+                  className="w-full px-4 py-4 mb-2 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                 />
-                {errors.address && <span className='text-red-600 text-sm capitalize'>{errors.address }</span>}
-                </div>
-             
                 <p className="text-lg font-semibold mb-2">Description</p>
-                <div className='mb-4'>
                 <textarea
                   type="text"
                   id="description"
@@ -441,11 +399,8 @@ if(loading){
                   onChange={onChange}
                   placeholder="Description"
                   required
-                  className="w-full  px-4 py-2 text-xl text-gray-700 bg-white  border-[1px] border-[#556987]  rounded-md"
+                  className="w-full mb-4 px-4 py-2 text-xl text-gray-700 bg-white  border-[1px] border-[#556987]  rounded-md"
                 />
-                {errors.description && <span className='text-red-600 text-sm capitalize'>{errors.description }</span>}
-                </div>
-                
                 <div className="flex justify-between">
                   <button
                     onClick={() => {
