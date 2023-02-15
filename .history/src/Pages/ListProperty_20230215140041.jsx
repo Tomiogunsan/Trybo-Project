@@ -178,9 +178,6 @@ return new Promise((resolve, reject) => {
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
     getDownloadURL(uploadTask?.snapshot?.ref)?.then((downloadURL) => {
      resolve( downloadURL);
-     setLoading(false)
-toast.success('Listing created');
-navigate('/')
     });
   }
 );
