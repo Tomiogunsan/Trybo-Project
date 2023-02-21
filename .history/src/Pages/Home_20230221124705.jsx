@@ -10,7 +10,7 @@ export default function Home() {
     
      <Hero/>
      <Testimonial />
-     <BlogCard />
+     <B
     <Footer></Footer>
     </>
    
