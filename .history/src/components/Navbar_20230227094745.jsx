@@ -60,7 +60,7 @@ export default function Navbar() {
         onClick={handleNav}
         className={
           nav
-            ? 'absolute items-center  bg-white left-0 top-0 w-full h-screen px-4 py-7 flex flex-col '
+            ? 'absolute items-center  bg-white left-0 top-0 w-full h-4/5 px-4 py-7 flex flex-col '
             : 'absolute right-[-100%]'
         }
       >

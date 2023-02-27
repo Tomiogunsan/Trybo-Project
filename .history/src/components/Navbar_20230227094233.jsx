@@ -60,21 +60,23 @@ export default function Navbar() {
         onClick={handleNav}
         className={
           nav
-            ? 'absolute items-center  bg-white left-0 top-0 w-full h-screen px-4 py-7 flex flex-col '
+            ? 'absolute items-center bg-white left-0 top-0 w-full px-4 py-7 flex flex-col '
             : 'absolute right-[-100%]'
         }
       >
-        
+        <div className='f'>
+          <img src={logo} alt="logo" className=" w-[50%] " />
+        </div>
 
         <ul className="flex  flex-col items-center ">
           <NavLink to={pageState ? '/sign-in' : '/profile'} className="mr-6">
-            <li className="flex items-center text-md py-4">{pageState}</li>
+            <li className="flex items-center text-md">{pageState}</li>
           </NavLink>
           <NavLink to="/sign-up" className="mr-6">
-            <li className="flex items-center text-md py-4">Sign up</li>
+            <li className="flex items-center text-md">Sign up</li>
           </NavLink>
           <NavLink to="/list-property" className="mr-6">
-            <li className="border-[1px] border-blue-700 px-4 py-2 my-4 rounded-full ">
+            <li className="border-[1px] border-blue-700 px-4 rounded-full py-2">
               List your Property
             </li>
           </NavLink>
