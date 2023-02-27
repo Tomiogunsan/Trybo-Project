@@ -36,7 +36,7 @@ function App() {
         <Route path='/forgot-password' element={<ForgotPassword />} />
         <Route path='/help' element={<Help />} />
         <Route path='/list-property' element={<ListProperty />} />
-        <Route path='/blog/:id' element={<Blog />} />
+        <Route path='/blog' element={<Blog />} />
       </Routes>
     </Router>
     <ToastContainer
