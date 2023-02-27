@@ -48,8 +48,8 @@ export default function BlogCard() {
                 
                 <img src={post.image} alt='/' className='  '/>
                     <h2 className='pt-6 text-base pb-8 truncate  '>{post.Title}</h2>
-                    <Link to={`/blog/${post.id}`}>
-                    <p className='font-semibold text-blue-900 underline'>Continue reading</p>
+                    <Link to={`/blog`}>
+                    <p>Continue reading</p>
                     </Link>
                     
             </div>

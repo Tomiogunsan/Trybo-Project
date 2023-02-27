@@ -2,7 +2,7 @@ import React from 'react'
 import banner from '../Assets/banner.jpg'
 import Container from '../components/Container'
 import { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { db } from '../firebase';
 import { collection, getDocs } from "firebase/firestore"
 
@@ -47,10 +47,9 @@ export default function BlogCard() {
             <div key={post.id} >
                 
                 <img src={post.image} alt='/' className='  '/>
-                    <h2 className='pt-6 text-base pb-8 truncate  '>{post.Title}</h2>
-                    <Link to={`/blog/${post.id}`}>
-                    <p className='font-semibold text-blue-900 underline'>Continue reading</p>
-                    </Link>
+                    <h2 className='pt-6 teaxt- pb-8 line-clamp-none'>{post.Title}</h2>
+                    {/* <p>Continue reading</p> */}
+                
                     
             </div>
       )

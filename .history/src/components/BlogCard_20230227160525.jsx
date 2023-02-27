@@ -2,7 +2,7 @@ import React from 'react'
 import banner from '../Assets/banner.jpg'
 import Container from '../components/Container'
 import { useState, useEffect } from "react";
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { db } from '../firebase';
 import { collection, getDocs } from "firebase/firestore"
 
@@ -40,17 +40,16 @@ export default function BlogCard() {
       <Container>
         <h1 className=' text-3xl md:text-5xl font font-semibold pb-8'>Trybo pulse</h1>
         <p className='text-lg md:w-[66%] lg:w-[42%] tracking-wider'>From latest news to team interviews, learn more about the passion that powers a Sonder.</p>
-       <div className="grid  grid-cols-4 gap-4 mt-20">
+       <div className="grid  grid-cols-3 gap-2 mt-20">
        {posts.map((post) => (
        
             
             <div key={post.id} >
                 
-                <img src={post.image} alt='/' className='  '/>
-                    <h2 className='pt-6 text-base pb-8 truncate  '>{post.Title}</h2>
-                    <Link to={`/blog/${post.id}`}>
-                    <p className='font-semibold text-blue-900 underline'>Continue reading</p>
-                    </Link>
+                <img src={post.image} alt='/' className='w-[50%]  '/>
+                    <h2 className='text-lg pb-8 line-clamp-none'>{post.Title}</h2>
+                    {/* <p>Continue reading</p> */}
+                
                     
             </div>
       )
