@@ -340,8 +340,8 @@ if(loading){
                     id="price"
                     value={price}
                     onChange={onChange}
-                    min="100"
-                    max="500"
+                    min="0"
+                    max="50"
                     required
                     className="w-full  px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                   />
@@ -487,14 +487,72 @@ if(loading){
             </>
           )}
           
-           
+              type="number"
+              id="bedrooms"
+              // value={bedrooms}
+              // onChange={onChange}
+              min="1"
+              max="50"
+              required
+              className=" w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md" />
+          </div>
+          <div>
+            <p className="text-lg font-semibold text-[#1a1e24]">Baths</p>
+            <input
+              type="number"
+              id="bathrooms"
+              // value={bathrooms}
+              // onChange={onChange}
+              min="1"
+              max="50"
+              required
+              className="  w-full px-4 py-2 text-xl   border-[1px] border-[#556987]  rounded-md"/>
+          </div>
           
-        
-              
-         
+        </div>
+        <div>
+          <p className="text-lg font-semibold text-[#1a1e24]">Price</p>
+          <input
+              type="number"
+              id="bathrooms"
+              // value={bathrooms}
+              // onChange={onChange}
+              min="1"
+              max="50"
+              required
+              className="w-full mb-2 px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"/>
+          </div>
+        <p className="text-lg  font-semibold">Address</p>
+        <input
+          type="text"
+          id="address"
+          // value={address}
+          // onChange={onChange}
+          placeholder="Address"
+          required
+          className="w-full px-4 py-4 mb-2 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md" />
+        <p className="text-lg font-semibold mb-2">Description</p>
+        <textarea
+          type="text"
+          id="description"
+          // value={description}
+          // onChange={onChange}
+          placeholder="Description"
+          required
+          className="w-full mb-4 px-4 py-2 text-xl text-gray-700 bg-white  border-[1px] border-[#556987]  rounded-md"
+        />
         
             
+            </div>
+            <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 w-full  py-4 mb-2 mt-4 rounded-full
+          text-lg hover:bg-blue-800 shadow-md  active:bg-blue-900 active:shadow-lg transition duration-150 ease-in-out"
+        >
+          Create Listing
+        </button>
             
+          </form> */}
         </div>
       </div>
     </>

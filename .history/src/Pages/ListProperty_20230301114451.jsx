@@ -340,8 +340,8 @@ if(loading){
                     id="price"
                     value={price}
                     onChange={onChange}
-                    min="100"
-                    max="500"
+                    min="50"
+                    max="50"
                     required
                     className="w-full  px-4 py-4 text-xl text-gray-700 bg-white border-[1px] border-[#556987]  rounded-md"
                   />

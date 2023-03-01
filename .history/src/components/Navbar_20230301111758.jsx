@@ -31,7 +31,7 @@ export default function Navbar() {
       </div>
 
       <ul className="hidden md:flex items-center ">
-        <NavLink to={(pageState  === 'Log in') ? '/sign-in' : '/profile'} className="mr-6">
+        <NavLink to={(pageState  === '')? '/sign-in' : '/profile'} className="mr-6">
           <li className="flex items-center text-md">
             <BsPerson className="text-blue-900 text-xl mr-2" />
             {pageState}
