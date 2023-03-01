@@ -40,16 +40,16 @@ export default function BlogCard() {
       <Container>
         <h1 className=' text-3xl md:text-5xl font font-semibold pb-8'>Trybo pulse</h1>
         <p className='text-lg md:w-[66%] lg:w-[42%] tracking-wider'>From latest news to team interviews, learn more about the passion that powers a Sonder.</p>
-       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 ">
+       <div className="grid  md:grid-cols-4 gap-4 mt-20 m">
        {posts.map((post) => (
        
             
             <div key={post.id} >
                 
                 <img src={post.image} alt='/' className='  '/>
-                    <h2 className='pt-6 text-base pb-2 truncate  '>{post.Title}</h2>
+                    <h2 className='pt-6 text-base pb-8 truncate  '>{post.Title}</h2>
                     <Link to={`/blog/${post.id}`}>
-                    <p className='font-semibold pb-4 text-blue-900 underline'>Continue reading</p>
+                    <p className='font-semibold text-blue-900 underline'>Continue reading</p>
                     </Link>
                     
             </div>

@@ -35,7 +35,7 @@ export default function BlogPostOne() {
        return <div className='text-gray-700'>
        
        <div className='flex flex-col items-center'>
-       <h2 className=' text-[26px] px-2 md:text-4xl pb-4 font-semibold'> {post.Title}</h2>
+       <h2 className=' text-[2px] px-2 md:text-4xl pb-4 font-semibold'> {post.Title}</h2>
        <p className='text-lg'>{post.Date}</p>
        <div className='flex items-center text-[#556987] mb-4'>
         <BiTime  className='mr-[4px] '/>

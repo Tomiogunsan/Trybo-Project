@@ -47,7 +47,7 @@ export default function Testimonial() {
                 "Love the app! It works like magic and all the information 
                 is super helpful to make the experience seamlesss "
                 </p>
-                <p className='px-10  pt-6 md:pt-12 text-lg'>Mark</p>
+                <p className='px-10  pt-md:pt-12 text-lg'>Mark</p>
 
             </div>
         </SwiperSlide>
