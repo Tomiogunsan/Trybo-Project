@@ -20,7 +20,7 @@ export default function BlogCard() {
         const postsCollectionRef = collection(db, 'posts')
         async function getPosts() {
             const data = await getDocs(postsCollectionRef);
-            // console.log(data);
+            console.log(data);
             setPosts(data.docs.map((doc) => {
                 // console.log(doc.id);
                 return ({...doc.data(), id: doc.id}

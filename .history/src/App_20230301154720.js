@@ -11,7 +11,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Profile from './Pages/Profile'
 import PrivateRoute from './components/PrivateRoute'
-import EditListing from './Pages/EditListing'
+import EditList
 import Blog from './Pages/Blog'
 
 
