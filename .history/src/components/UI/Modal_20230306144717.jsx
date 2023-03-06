@@ -3,7 +3,7 @@ import ReactDOM  from 'react-dom'
 
 const ModalOverlay = (props) => {
     return (
-        <div className='fixed top-0 left-0 w-full h-screen z-20 bg-black/40'>
+        <div className='fixed top-0 left-0 w-full h-screen z-20 bg-black/0'>
             <div className='fixed top-[20vh] left-[30%] w-[40%] bg-[#fcfcfc] p-4 rounded-2xl shadow-md z-30 slide-down'>
                 <div>
                     {props.children}

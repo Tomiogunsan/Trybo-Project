@@ -2,24 +2,21 @@ import React from 'react'
 import Modal from './UI/Modal'
 import {GrFormClose} from 'react-icons/gr'
 import { FcCalendar } from 'react-icons/fc'
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-import { DatePicker, Space } from 'antd';
-
-const { RangePicker } = DatePicker;
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function BookingDetails() {
   return (
     <Modal>
-        <div className='w-full  flex justify-end'>
-        <GrFormClose className='text-3xl  
+        <div className='w-full bg-gray-500 flex justify-end'>
+        <GrFormClose className='text-2xl  
         '/>
         </div>
         
         <div className=' mt-8 flex flex-col pl-8'>
         <h2 className=' font-medium text-lg pb-2'>Your booking details</h2>
-        <RangePicker 
-        
+        <DatePicker 
+        placeholder='Select date' 
         className='px-4 py-4 border w-[150px]'
         />
         </div>

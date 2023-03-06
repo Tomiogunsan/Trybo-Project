@@ -19,7 +19,7 @@ export default function BookingDetails() {
         <div className=' mt-8 flex flex-col pl-8'>
         <h2 className=' font-medium text-lg pb-2'>Your booking details</h2>
         <RangePicker 
-        
+        placeholder='Select date' 
         className='px-4 py-4 border w-[150px]'
         />
         </div>
