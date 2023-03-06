@@ -85,7 +85,7 @@ export default function Listing() {
         <div className='  '>
             <div className='flex justify-between mb-2'>
             <p className='font-semibold text-2xl'>{listing.name} </p>
-            <p className='bg-blue-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} per night</p>
+            <p className='bg-blue-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} / night</p>
             </div>
             <div className='flex items-center gap-4'>
               <MdLocationOn className='text-blue-800' /> 
@@ -93,17 +93,7 @@ export default function Listing() {
             </div>
             <p className='text-base tracking-wider mt-4'>{listing.description}</p>
 
-        <div className=' mt-24 flex bg-blue-100 items-center gap-4 text-gray-800'>
-          <div className='bg-blue-800 rounded-full text-center py-6 text-[#fcfcfc] '>
-            <p className='px-8 text-sm'>The</p>
-            <p className=' uppercase text-base px-4'>Trybo</p>
-            <p className='uppercase text-base px-6'>Promise</p>
-          </div>
-          <div>
-            <p className='font-semibold'>Peace of mind guaranteed with every booking.</p>
-            <p className='text-sm'>We promise expert-vetted homes, total transparency and exceptional service.</p>
-          </div>
-        </div>
+        
         </div>
         <div className=' mx-12 w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
         <div className='flex  px-8 gap-3 mt-6 mb-2'>

@@ -93,15 +93,15 @@ export default function Listing() {
             </div>
             <p className='text-base tracking-wider mt-4'>{listing.description}</p>
 
-        <div className=' mt-24 flex bg-blue-100 items-center gap-4 text-gray-800'>
-          <div className='bg-blue-800 rounded-full text-center py-6 text-[#fcfcfc] '>
+        <div className=' mt-20 flex'>
+          <div className='bg-blue-800 rounded-full text-[#fcfcfc] '>
             <p className='px-8 text-sm'>The</p>
-            <p className=' uppercase text-base px-4'>Trybo</p>
-            <p className='uppercase text-base px-6'>Promise</p>
+            <p>Trybo</p>
+            <p>Promise</p>
           </div>
           <div>
-            <p className='font-semibold'>Peace of mind guaranteed with every booking.</p>
-            <p className='text-sm'>We promise expert-vetted homes, total transparency and exceptional service.</p>
+            <p>Peace of mind guaranteed with every booking.</p>
+            <p>We promise expert-vetted homes, total transparency and exceptional service.</p>
           </div>
         </div>
         </div>

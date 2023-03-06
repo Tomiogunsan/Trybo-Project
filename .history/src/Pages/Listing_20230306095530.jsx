@@ -3,9 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { db } from '../firebase';
 import {FaChair, FaParking, FaShare} from 'react-icons/fa'
-import {FcCalendar} from 'react-icons/fc'
-import {RxPerson} from 'react-icons/rx'
-import {IoTrainOutline} from 'react-icons/io5'
 import Spinner from '../components/Spinner';
 import {MdLocationOn, MdOutlineBed} from 'react-icons/md'
 import {FaBath} from 'react-icons/fa'
@@ -40,7 +37,6 @@ export default function Listing() {
     if(loading){
         return <Spinner />
     }
-   
   return (
     <main>
          <Swiper
@@ -85,7 +81,7 @@ export default function Listing() {
         <div className='  '>
             <div className='flex justify-between mb-2'>
             <p className='font-semibold text-2xl'>{listing.name} </p>
-            <p className='bg-blue-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} per night</p>
+            <p className='bg-blue-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} / night</p>
             </div>
             <div className='flex items-center gap-4'>
               <MdLocationOn className='text-blue-800' /> 
@@ -93,71 +89,37 @@ export default function Listing() {
             </div>
             <p className='text-base tracking-wider mt-4'>{listing.description}</p>
 
-        <div className=' mt-24 flex bg-blue-100 items-center gap-4 text-gray-800'>
-          <div className='bg-blue-800 rounded-full text-center py-6 text-[#fcfcfc] '>
-            <p className='px-8 text-sm'>The</p>
-            <p className=' uppercase text-base px-4'>Trybo</p>
-            <p className='uppercase text-base px-6'>Promise</p>
-          </div>
-          <div>
-            <p className='font-semibold'>Peace of mind guaranteed with every booking.</p>
-            <p className='text-sm'>We promise expert-vetted homes, total transparency and exceptional service.</p>
-          </div>
-        </div>
-        </div>
-        <div className=' mx-12 w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
-        <div className='flex  px-8 gap-3 mt-6 mb-2'>
-          <div className='flex'>
-            <RxPerson  className='text-2xl'/>
-            <RxPerson className='text-2xl' />
-          </div>
-          <div className='flex flex-col'>
-            <p className='font-semibold'>{(listing.bedrooms === '1' ) ? 'Sleep up to 2' :
-             (listing.bedrooms === '2') ? 'Sleep up to 4' : 'Sleep up to 6'
-             }</p>
-          <div className='flex'>
-            <p>{listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"},</p>
-            <p className='ml-[4px]'>{listing.bathroom > 1 ? `${listing.bathroom} Bathrooms` : "1 Bathroom"}</p>
-            
-          </div>
-          <div className='flex'>
-            <p>{listing.parking ? "Parking spot" : "No parking"}, </p>
-            <p className='ml-[4px]'>{listing.furnished ? "Furnished" : "Not furnished"}</p>
-          </div>
-          </div>
-          
-          
         
-       
         </div>
-        
+        <div className=' mx-12 w-[350px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
+        <div className='flex  '>
+        <div className='flex items-center px-8'>
+            <MdOutlineBed className='text-2xl mr-1 text-gray-400'/>
+        <p className='text-lg text-gray-600'>{listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}</p>
+        </div>
+        <div className='flex items-center p-4'>
+        <FaBath className='text-xl mr-1 text-gray-400'/>
+        <p className='text-lg text-gray-600'>{listing.bathroom > 1 ? `${listing.bathroom} Bathrooms` : "1 Bathroom"}</p>
+        </div>
+        </div>
         
         <p className='border-[1px] border-gray-200 mx-4'></p>
         
-        <div className='flex gap-[30px] px-8 mt-4 mb-2'>
-          <IoTrainOutline className='text-3xl'/>
-          <div>
-          <p className='font-semibold'>4 mins walk to</p>
-          <p>to city center</p>
-          </div>
-          
-        </div>
         
-        <p className='border-[1px] border-gray-200 mx-4'></p>
-        <div className='flex gap-6 px-8 mt-4 mb-2'>
-          <FcCalendar className='text-5xl'/>
-          <div>
-          <p className='font-semibold'>Get a 50% refund</p>
-          <p>when you cancel up until 7 days before check-in </p>
-          </div>
-          
+        <div className='flex'>
+        <div className='flex items-center px-8'>
+        <FaParking className="text-xl mr-1 text-gray-400" />
+        <p className='text-lg text-gray-600'> {listing.parking ? "Parking spot" : "No parking"}</p> 
+        </div>
+        <div className='flex items-center p-4'>
+        <FaChair className="text-xl mr-1 text-gray-400" />
+        <p className='text-lg text-gray-600'>{listing.furnished ? "Furnished" : "Not furnished"}</p>
+        </div>
         </div>
         <p className='border-[1px] border-gray-200 '></p>
-        <p className='text-center pt-4 pb-4'>Add dates for price</p>
-        <div className='flex items-center justify-center mb-4'>
-        <button className='bg-blue-800 text-white uppercase items-center px-16 py-2 rounded-full hover:bg-blue-900 cursor-pointer'>Check Availability</button>
+        <div>
+          <FcCalendar
         </div>
-        
         </div>
       </div>
       {/* </Container> */}
