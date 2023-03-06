@@ -82,11 +82,11 @@ export default function Listing() {
         <Container>
       <div className=' max-w-6xl mx-auto mt-10 px-4 grid md:grid-cols-2 gap-20'>
       
-        <div className=' sm:w-[350px] lg:w-full '>
-            <div className='flex flex-col  justify-between mb-2'>
+        <div className=' w-[370px] md- '>
+            <div className='flex flex-col md:flex-row justify-between mb-2'>
             <p className='font-semibold text-2xl'>{listing.name} </p>
-            <div className='w-[150px]  mt-4 mb-2 '>
-            <p className='bg-green-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} per night</p>
+            <div className='w-[150px]  mt-4 md:mt-0'>
+            <p className='bg-blue-800 text-white px-4 py-2 capitalize rounded-lg font-semibold'>${listing.price} per night</p>
             </div>
             
             </div>
@@ -94,9 +94,9 @@ export default function Listing() {
               <MdLocationOn className='text-red-600' /> 
             <p className=' text-lg text-gray-800'>{listing.address}</p>
             </div>
-            <p className='text-base tracking-wider mt-4 mr-2'>{listing.description}</p>
+            <p className='text-base tracking-wider mt-4'>{listing.description}</p>
 
-        <div className=' mt-24 flex bg-blue-100  items-center gap-4 text-gray-800 mr-[4px] py-2'>
+        <div className=' mt-24 flex bg-blue-100 items-center gap-4 text-gray-800'>
           <div className='bg-blue-800 rounded-full text-center py-6 text-[#fcfcfc] '>
             <p className='px-8 text-sm'>The</p>
             <p className=' uppercase text-base px-4'>Trybo</p>
@@ -108,7 +108,7 @@ export default function Listing() {
           </div>
         </div>
         </div>
-        <div className=' lg:mx-12 w-[300px] lg:w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
+        <div className=' mx-12 w-[300px] md:w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
         <div className='flex  px-8 gap-3 mt-6 mb-2'>
           <div className='flex'>
             <RxPerson  className='text-2xl'/>

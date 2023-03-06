@@ -82,7 +82,7 @@ export default function Listing() {
         <Container>
       <div className=' max-w-6xl mx-auto mt-10 px-4 grid md:grid-cols-2 gap-20'>
       
-        <div className=' sm:w-[350px] lg:w-full '>
+        <div className=' w-[350px]  '>
             <div className='flex flex-col  justify-between mb-2'>
             <p className='font-semibold text-2xl'>{listing.name} </p>
             <div className='w-[150px]  mt-4 mb-2 '>
@@ -108,7 +108,7 @@ export default function Listing() {
           </div>
         </div>
         </div>
-        <div className=' lg:mx-12 w-[300px] lg:w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
+        <div className=' md:mx-12 w-[300px] md:w-[370px]  rounded-3xl shadow-xl md:mx-0 text-gray-700'>  
         <div className='flex  px-8 gap-3 mt-6 mb-2'>
           <div className='flex'>
             <RxPerson  className='text-2xl'/>

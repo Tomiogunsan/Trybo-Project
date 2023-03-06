@@ -82,7 +82,7 @@ export default function Listing() {
         <Container>
       <div className=' max-w-6xl mx-auto mt-10 px-4 grid md:grid-cols-2 gap-20'>
       
-        <div className=' sm:w-[350px] lg:w-full '>
+        <div className=' w-[350px] m '>
             <div className='flex flex-col  justify-between mb-2'>
             <p className='font-semibold text-2xl'>{listing.name} </p>
             <div className='w-[150px]  mt-4 mb-2 '>
