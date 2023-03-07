@@ -21,7 +21,7 @@ export default function BookingDetails(props) {
         <h2 className=' font-medium text-lg pb-2'>Your booking details</h2>
         <RangePicker 
         
-        className='px-4 py-4 border '
+        className='px-4 py-4 border w-[150px]'
         />
         </div>
         <div className='flex gap-6 px-8 mt-4 mb-2'>

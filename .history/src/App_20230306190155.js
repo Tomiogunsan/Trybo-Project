@@ -20,18 +20,14 @@ import BookingDetails from './components/BookingDetails'
 
 function App() {
   const[showDetails, setShowDetails] = useState(false)
-  
+  const
   function showBookingDetails(){
     setShowDetails(true)
     console.log('click');
   }
 
-  function hideShowBookingDetails(){
-    setShowDetails(false)
-  }
-
   return <>
-    {showDetails && <BookingDetails onClose={hideShowBookingDetails} />}
+    {showDetails && <BookingDetails />}
     <Router>
       <Routes>
         <Route path='/' element={<Home />}/>

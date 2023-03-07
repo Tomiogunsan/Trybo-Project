@@ -17,10 +17,10 @@ export default function ListingItem({listing, id, onEdit, onDelete}) {
        </Moment>
        <div  className="w-full p-[10px]">
         <div className='flex items-center space-x-1'>
-          <MdLocationOn className="h-4 w-4 text-green-600"/>
+          <MdLocationOn className="h-4  text-green-600"/>
           <p className="font-semibold text-sm mb-[2px] text-gray-600 truncate">{listing?.address}</p>
         </div>
-        <p className="font-semibold m-0  text-xl truncate">{listing.name}</p>
+        <p className="font-semibold m-0 text-xl truncate">{listing.name}</p>
         <p className="text-[#457b9d] mt-2 font-semibold">$ {listing.price}</p>
         <div className="flex items-center mt-[10px] space-x-3">
           <div className="flex items-center space-x-1">

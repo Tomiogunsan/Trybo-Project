@@ -31,7 +31,7 @@ function App() {
   }
 
   return <>
-    {showDetails && <BookingDetails onClose={hideShowBookingDetails} />}
+    {showDetails && <BookingDetails onClose />}
     <Router>
       <Routes>
         <Route path='/' element={<Home />}/>

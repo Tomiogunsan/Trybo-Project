@@ -25,13 +25,10 @@ function App() {
     setShowDetails(true)
     console.log('click');
   }
-
-  function hideShowBookingDetails(){
-    setShowDetails(false)
-  }
+  
 
   return <>
-    {showDetails && <BookingDetails onClose={hideShowBookingDetails} />}
+    {showDetails && <BookingDetails />}
     <Router>
       <Routes>
         <Route path='/' element={<Home />}/>
