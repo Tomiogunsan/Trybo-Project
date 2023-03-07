@@ -15,7 +15,6 @@ import EditListing from './Pages/EditListing'
 import Blog from './Pages/Blog'
 import ListingItem from './Pages/ListingItem'
 import BookingDetails from './components/BookingDetails'
-import Listing from './Pages/ListingItem'
 
 
 

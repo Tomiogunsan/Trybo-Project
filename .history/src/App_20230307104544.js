@@ -13,9 +13,8 @@ import Profile from './Pages/Profile'
 import PrivateRoute from './components/PrivateRoute'
 import EditListing from './Pages/EditListing'
 import Blog from './Pages/Blog'
-import ListingItem from './Pages/ListingItem'
+import Listing from './Pages/Listing'
 import BookingDetails from './components/BookingDetails'
-import Listing from './Pages/ListingItem'
 
 
 
@@ -39,7 +38,6 @@ function App() {
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/listing' element={<Listing />} />
         <Route path='/listing/:listingId' element={<ListingItem onClick={showBookingDetails}/>} />
         
         <Route path='/profile' element={<PrivateRoute/>}>

@@ -39,9 +39,9 @@ function App() {
         <Route path='/welcome' element={<Welcome />} />
         <Route path='/sign-in' element={<SignIn />} />
         <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/listing' element={<Listing />} />
+        <Route path='/listing' element={<Listing />} >
         <Route path='/listing/:listingId' element={<ListingItem onClick={showBookingDetails}/>} />
-        
+        <Route></Route>
         <Route path='/profile' element={<PrivateRoute/>}>
         <Route path='/profile' element={<Profile />} />
         </Route>

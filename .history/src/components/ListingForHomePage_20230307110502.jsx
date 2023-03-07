@@ -77,7 +77,7 @@ export default function ListingForHomePage() {
         >
           {homeListing.map((listing) => {
             return (
-              <div key={listing.id}>
+              <div key={index}>
                 <SwiperSlide>
                   <Link to="/listing" className="cursor-pointer">
                     <img

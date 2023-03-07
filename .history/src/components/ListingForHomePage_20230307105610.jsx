@@ -75,9 +75,9 @@ export default function ListingForHomePage() {
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
         >
-          {homeListing.map((listing) => {
+          {homeListing.map((listing, index) => {
             return (
-              <div key={listing.id}>
+              <div key={index}>
                 <SwiperSlide>
                   <Link to="/listing" className="cursor-pointer">
                     <img

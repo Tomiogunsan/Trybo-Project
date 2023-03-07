@@ -18,8 +18,8 @@ export default function Testimonial() {
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination,  A11y]}
-      spaceBetween={450}
-      slidesPerView={3}
+      spaceBetween={650}
+      slidesPerView={2}
       navigation
       
       breakpoints={{
