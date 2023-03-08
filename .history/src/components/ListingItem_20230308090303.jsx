@@ -12,7 +12,7 @@ export default function ListingItem({listing, id, onEdit, onDelete}) {
         <Link to={`/listing/${id}`}>
         <img src={listing?.imgUrls[0] } alt='a house'   className=" h-[60%] w-full object-cover  rounded-lg hover:scale-105 transition-scale duration-200 ease-in"/>
        <Moment fromNow 
-           className="absolute top-2 sm:left-5 lg:left-2 xl:left-8 bg-[#3377cc] text-white uppercase text-xs font-semibold rounded-md px-2 py-1 shadow-lg">
+           className="absolute top-2 left-10  bg-[#3377cc] text-white uppercase text-xs font-semibold rounded-md px-2 py-1 shadow-lg">
         {listing.timestamp?.toDate()}
        </Moment>
        <div  className="w-full p-[10px]">

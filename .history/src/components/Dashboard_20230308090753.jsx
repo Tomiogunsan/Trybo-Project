@@ -6,7 +6,7 @@ export default function Dashboard({children}) {
   return (
   
     <div className='md:flex w-full mt-16'>
-       <div className='invisible lg:visible lg:w-[250px] lg:h-[400px] ml-20 '
+       <div className='invisible lg:visible lg:w-[250px] md:h-[400px] ml-20 '
        >
         <ProfileSideBar />
         </div> 

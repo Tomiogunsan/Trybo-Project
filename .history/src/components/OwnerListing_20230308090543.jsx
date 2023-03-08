@@ -49,7 +49,7 @@ export default function OwnerListing() {
             <h2 className='text-3xl font-semibold mb-8'>
                 My Listings
                 </h2>
-                <ul className='grid md:grid-cols-2 lg:grid-cols-2  '>
+                <ul className='grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols- '>
                 {
                     listings?.map((listing) => (
                         <ListingItem
