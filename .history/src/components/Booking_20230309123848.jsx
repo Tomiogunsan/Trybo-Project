@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Booking() {
     const navigate = useNavigate()
     function handleSearch(){
-        navigate('/listing')
+        navigate()
     }
   return (
     <div>

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Booking() {
     const navigate = useNavigate()
     function handleSearch(){
-        navigate('/listing')
+
     }
   return (
     <div>
@@ -16,9 +16,7 @@ export default function Booking() {
           <input placeholder="Check out" />
         </div>
         <div className="pl-4 p-2 w-full md:w-[50%] lg:w-[25%] ">
-          <button 
-          onClick={handleSearch}
-          className="w-full px-6 text-lg rounded-md lg:rounded-full bg-blue-700 text-white p-2 hover:bg-blue-900">
+          <button className="w-full px-6 text-lg rounded-md lg:rounded-full bg-blue-700 text-white p-2 hover:bg-blue-900">
             Search
           </button>
         </div>

@@ -43,7 +43,7 @@ export default function ProfileSideBar({listings}) {
 
             return <>
             
-         { listings === 0 && item.link !== "listings" ? 
+         { listings > 0 && (item.link !== "listings" &&  
           <div  key={idx} className={ `flex  p-8 
           ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
               <Link to={item.link } smooth={true}  
@@ -52,24 +52,7 @@ export default function ProfileSideBar({listings}) {
              <div className='ml-4 text-lg text-[#C0C0C0]'>{ item.text}</div>
              </Link>
             
-         </div> : listings > 0   ? 
-         <div  key={idx} className={ `flex  p-8 
-         ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
-             <Link to={item.link } smooth={true}  
-           duration={1000} activeClass='active' className='flex'>
-           {item.label}
-            <div className='ml-4 text-lg text-[#C0C0C0]'>{ item.text}</div>
-            </Link>
-           
-        </div> : listings  && <div  key={idx} className={ `flex  p-8 
-          ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
-              <Link to={item.link } smooth={true}  
-            duration={1000} activeClass='active' className='flex'>
-            {item.label}
-             <div className='ml-4 text-lg text-[#C0C0C0]'>{ item.text}</div>
-             </Link>
-            
-         </div>
+         </div>) 
     }
          </>
         
