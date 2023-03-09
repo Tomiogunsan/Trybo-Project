@@ -43,7 +43,7 @@ export default function ProfileSideBar({listings}) {
 
             return <>
             
-         {  item.link !== "listings" && 
+         { listings === 0 && item.link !== "listings" && 
           <div  key={idx} className={ `flex  p-8 
           ${sideBar.length - 1 === idx ? " border-b-0 border": 'border-b-[1px] border'}`}>
               <Link to={item.link } smooth={true}  
