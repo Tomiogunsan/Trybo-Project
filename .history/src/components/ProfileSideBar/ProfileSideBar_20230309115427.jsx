@@ -53,7 +53,7 @@ export default function ProfileSideBar({listings}) {
              </Link>
             
          </div>
-    }
+         
          </>
         
        
