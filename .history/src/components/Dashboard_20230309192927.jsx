@@ -8,7 +8,7 @@ export default function Dashboard({children}) {
     <div className='md:flex w-full mt-16'>
        <div className='invisible lg:visible  lg:w-[250px] lg:h-[400px] ml-20 '
        >
-        <ProfileSideBar  />
+        <ProfileSideBar l />
         </div> 
         <div className=' lg:w-[calc(100vw-250px)]   ml-10 lg:ml-[100px]  '>
             {children}

@@ -7,7 +7,7 @@ import { Link } from 'react-scroll'
 
 
 
-export default function ProfileSideBar({listings=[]}) {
+export default function ProfileSideBar({listings[]}) {
 console.log(listings);
     const sideBar = [
         {

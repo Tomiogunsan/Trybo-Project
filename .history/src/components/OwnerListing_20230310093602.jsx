@@ -26,12 +26,11 @@ export default function OwnerListing() {
                 })
             })
             setListings(listings);
-            console.log(listings)
             setLoading(false);
         }
         fetchUserListings();
     }, [auth?.currentUser?.uid])
-
+console.log
     async function onDelete(listingID){
         if(window.confirm("Are you sure you want to delete?")){
             await deleteDoc(doc(db, 'listings', listingID))

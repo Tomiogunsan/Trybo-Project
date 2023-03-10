@@ -26,7 +26,6 @@ export default function OwnerListing() {
                 })
             })
             setListings(listings);
-            console.log(listings)
             setLoading(false);
         }
         fetchUserListings();

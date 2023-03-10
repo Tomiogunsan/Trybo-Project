@@ -2,7 +2,7 @@ import React from 'react'
 
 import ProfileSideBar from './ProfileSideBar/ProfileSideBar'
 
-export default function Dashboard({children}) {
+export default function Dashboard({children, listings}) {
   return (
   
     <div className='md:flex w-full mt-16'>

@@ -7,8 +7,8 @@ import { Link } from 'react-scroll'
 
 
 
-export default function ProfileSideBar({listings=[]}) {
-console.log(listings);
+export default function ProfileSideBar({listings}) {
+log
     const sideBar = [
         {
             label: <BsFillPersonFill className='bg-[#f5f5f5] rounded-full text-[#C0C0C0] text-3xl'/>,
