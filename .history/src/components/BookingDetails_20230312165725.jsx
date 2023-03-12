@@ -36,7 +36,7 @@ console.log(config.publicKey);
   // you can call this function anything
   const handlePaystackCloseAction = () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
-    // navigate('/')
+    navigate('/')
     console.log('closed')
   }
 

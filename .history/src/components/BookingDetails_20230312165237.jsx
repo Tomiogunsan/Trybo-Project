@@ -8,7 +8,6 @@ import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import useListing from '../hooks/useListing'
 import { PaystackButton } from 'react-paystack';
-import { useNavigate } from 'react-router-dom'
 
 const { RangePicker } = DatePicker
 
@@ -16,7 +15,7 @@ const { RangePicker } = DatePicker
 
 
 export default function BookingDetails(props) {
-  // const navigate = useNavigate()
+  const navigate 
   const { bookingDetails, setBookingDetails } = useListing()
   console.log(bookingDetails);
  
@@ -36,7 +35,6 @@ console.log(config.publicKey);
   // you can call this function anything
   const handlePaystackCloseAction = () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
-    // navigate('/')
     console.log('closed')
   }
 

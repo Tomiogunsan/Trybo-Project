@@ -16,7 +16,7 @@ const { RangePicker } = DatePicker
 
 
 export default function BookingDetails(props) {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const { bookingDetails, setBookingDetails } = useListing()
   console.log(bookingDetails);
  
@@ -36,7 +36,7 @@ console.log(config.publicKey);
   // you can call this function anything
   const handlePaystackCloseAction = () => {
     // implementation for  whatever you want to do when the Paystack dialog closed.
-    // navigate('/')
+    navigate
     console.log('closed')
   }
 
