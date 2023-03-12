@@ -1,7 +1,6 @@
 import React, { createContext, useMemo, useState } from 'react'
 
 
-
 const ListingContext = createContext({
 
 })
@@ -22,7 +21,6 @@ export function ListingProvider({children}) {
               ...bookingDetails,
               [name]:value
             })
-            
           }
           return {handleBookingDetailsChange,bookingDetails, setBookingDetails}
       }, [bookingDetails])

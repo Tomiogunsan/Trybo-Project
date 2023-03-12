@@ -1,12 +1,12 @@
 import React, { createContext, useMemo, useState } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 
 
 const ListingContext = createContext({
 
 })
 export function ListingProvider({children}) {
-  
+  const navigate = useNavigate()
     const [bookingDetails, setBookingDetails] = useState({
         roomName: '',
         numberOfNight: 0,
@@ -25,7 +25,7 @@ export function ListingProvider({children}) {
             
           }
           return {handleBookingDetailsChange,bookingDetails, setBookingDetails}
-      }, [bookingDetails])
+      }, [bookingDetails, navigate])
 
       
   return (
