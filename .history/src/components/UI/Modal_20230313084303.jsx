@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM  from 'react-dom'
-
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const ModalOverlay = (props) => {
     return (
@@ -18,11 +18,11 @@ export default function Modal(props) {
     const portalElement = document.getElementById('overlays')
   return (
     <>
-    
+    <Router>
     {ReactDOM.createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>, portalElement
     )}
- 
+    </Router>
     </>
   )
 }

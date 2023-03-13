@@ -8,7 +8,6 @@ import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import useListing from '../hooks/useListing'
 import { PaystackButton } from 'react-paystack';
-import { useNavigate } from 'react-router-dom'
 
 
 const { RangePicker } = DatePicker
@@ -31,7 +30,7 @@ export default function BookingDetails(props) {
 console.log(config.publicKey);
   const handlePaystackSuccessAction = (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
-     navigate('/')
+    // navigate('/')
     console.log(reference);
   };
 

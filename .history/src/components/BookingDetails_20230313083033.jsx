@@ -8,7 +8,6 @@ import { DatePicker, Space } from 'antd'
 import moment from 'moment'
 import useListing from '../hooks/useListing'
 import { PaystackButton } from 'react-paystack';
-import { useNavigate } from 'react-router-dom'
 
 
 const { RangePicker } = DatePicker

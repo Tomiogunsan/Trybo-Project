@@ -18,11 +18,10 @@ export default function Modal(props) {
     const portalElement = document.getElementById('overlays')
   return (
     <>
-    
     {ReactDOM.createPortal(
         <ModalOverlay>{props.children}</ModalOverlay>, portalElement
     )}
- 
+    
     </>
   )
 }
