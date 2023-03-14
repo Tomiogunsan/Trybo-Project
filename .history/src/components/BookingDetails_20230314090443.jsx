@@ -61,7 +61,7 @@ console.log(config.publicKey);
             const date = value.map((item) => {
               return item.format()
             })
-            
+            console.log(date)
             const start = moment(date[0])
             const end = moment(date[1])
             const numberOfDays = end.diff(start, 'days') 
