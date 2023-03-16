@@ -61,7 +61,7 @@ export default function Footer() {
     </div>
     <div className='grid md:grid-cols-2 gap-4 md:gap-16 justify-between mt-16 px-4'>
       <div>
-        <p>© 2023 Trybo, an <span className='text-blue-900 font-semibold'>Expedia Group</span> company. All rights reserved.</p>
+        <p>© 2023 Trbo, an <span className='text-blue-900 font-semibold'>Expedia Group</span> company. All rights reserved.</p>
         <p className='text-blue-900 font-semibold'>Terms and Conditions · Privacy Policy · Your Privacy Choices</p>
       </div>
       <div className='flex gap-4'>
