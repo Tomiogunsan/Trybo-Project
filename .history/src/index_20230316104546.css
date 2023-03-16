@@ -6,7 +6,7 @@
     background: rgb(187, 187, 223) !important;
 }
 
-/* .swiper-button-next:after,
+.swiper-button-next:after,
 .swiper-button-prev:after{
-    top: 12px;
-} */
+    color: #a8dadc;
+}

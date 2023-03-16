@@ -103,7 +103,7 @@ export default function SignIn() {
           <div className='flex mb-10'>
             <p className='mr-2 text-[#556987]'>Don't have an account?</p>
             <p>
-              <Link to="/sign-up" className=' text-red-600 font-semibold hover:text-red-800 transition duration-200 ease-in-out '>Create one</Link>
+              <Link to="/sign-up" className='text-sm text-red-600 font-semibold hover:text-red-800 transition duration-200 ease-in-out '>Create one</Link>
             </p>
           </div>
           <p className='mb-6 text-[#556987]'>or continue with</p> 
