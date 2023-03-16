@@ -68,22 +68,22 @@ export default function AllListing() {
       toast.error('Could not fetch listing')
     }
   }
+    useCallback(()=> {
+
+    }, )
+  async function upvote(listingId){
+    const docRef = doc(db, 'listings', listingId)
+  
+    const listingToBeUpdated = homeListing.find((item) => item.id === listingId)
    
-      async function upvote(listingId){
-        const docRef = doc(db, 'listings', listingId)
-      
-        const listingToBeUpdated = homeListing.find((item) => item.id === listingId)
-       
-        const payload = {
-          ...listingToBeUpdated,
-          vote: listingToBeUpdated.vote++,
-        }
-       
-        await updateDoc(docRef ,payload)
-        fetchListings()
-      }
+    const payload = {
+      ...listingToBeUpdated,
+      vote: listingToBeUpdated.vote++,
+    }
    
- 
+    await updateDoc(docRef ,payload)
+    fetchListings()
+  }
   return (
     <>
     <SubHeader />

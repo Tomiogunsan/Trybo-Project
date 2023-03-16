@@ -1,5 +1,5 @@
 import { collection, doc, getDocs, orderBy, query, updateDoc, limit, startAfter} from 'firebase/firestore'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '../components/Container'
 import Navbar from '../components/Navbar'
 import SubHeader from '../components/SubHeader'
@@ -68,22 +68,20 @@ export default function AllListing() {
       toast.error('Could not fetch listing')
     }
   }
+    
+  async function upvote(listingId){
+    const docRef = doc(db, 'listings', listingId)
+  
+    const listingToBeUpdated = homeListing.find((item) => item.id === listingId)
    
-      async function upvote(listingId){
-        const docRef = doc(db, 'listings', listingId)
-      
-        const listingToBeUpdated = homeListing.find((item) => item.id === listingId)
-       
-        const payload = {
-          ...listingToBeUpdated,
-          vote: listingToBeUpdated.vote++,
-        }
-       
-        await updateDoc(docRef ,payload)
-        fetchListings()
-      }
+    const payload = {
+      ...listingToBeUpdated,
+      vote: listingToBeUpdated.vote++,
+    }
    
- 
+    await updateDoc(docRef ,payload)
+    fetchListings()
+  }
   return (
     <>
     <SubHeader />

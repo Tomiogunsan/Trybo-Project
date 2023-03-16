@@ -68,7 +68,7 @@ export default function AllListing() {
       toast.error('Could not fetch listing')
     }
   }
-   
+    useCallback(()=> {
       async function upvote(listingId){
         const docRef = doc(db, 'listings', listingId)
       
@@ -82,7 +82,7 @@ export default function AllListing() {
         await updateDoc(docRef ,payload)
         fetchListings()
       }
-   
+    }, [])
  
   return (
     <>
