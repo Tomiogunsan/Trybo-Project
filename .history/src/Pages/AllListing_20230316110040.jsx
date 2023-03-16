@@ -76,14 +76,15 @@ export default function AllListing() {
        
         const payload = {
           ...listingToBeUpdated,
-         vote:  listingToBeUpdated.vote++,
+          vote: listingToBeUpdated.vote++,
         }
        
         await updateDoc(docRef ,payload)
         fetchListings()
       }
    
-      console.log(homeListing);
+      console.log(listings
+        );
  
   return (
     <>

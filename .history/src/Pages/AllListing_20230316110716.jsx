@@ -76,7 +76,7 @@ export default function AllListing() {
        
         const payload = {
           ...listingToBeUpdated,
-         vote:  listingToBeUpdated.vote++,
+         vote: typeof listingToBeUpdated.vote = "number" ? listingToBeUpdated.vote++ : listingToBeUpdated.vote,
         }
        
         await updateDoc(docRef ,payload)

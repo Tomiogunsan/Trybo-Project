@@ -201,7 +201,7 @@ const formDataCopy = {
   imgUrls,
   timestamp: serverTimestamp(),
   userRef: auth.currentUser.uid,
-  vote: 0,
+  v
 };
 delete formDataCopy.images;
 const docRef = await addDoc(collection(db, 'listings'), formDataCopy)
