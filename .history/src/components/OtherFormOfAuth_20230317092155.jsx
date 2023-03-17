@@ -37,7 +37,7 @@ export default function OtherFormOfAuth() {
 
   return (
     <button onClick={onGoogleClick} type="button" >
-      <FcGoogle className="text-3xl mb-6" />
+      <FcGoogle className="text-2xl" />
     </button>
   )
 }
