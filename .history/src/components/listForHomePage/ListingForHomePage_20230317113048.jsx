@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Container from './Container'
+import Container from '../Container'
 import {
   collection,
   getDocs,
@@ -8,13 +8,14 @@ import {
   query,
   where,
 } from 'firebase/firestore'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Link } from 'react-router-dom'
+import styles from './ListingForHomePage.module.css'
 
 export default function ListingForHomePage() {
   const [homeListing, setHomeListing] = useState([])
@@ -52,6 +53,7 @@ export default function ListingForHomePage() {
         {/* <div className='grid grid-cols-4 '> */}
         <Swiper
           // install Swiper modules
+          className=
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={10}
           slidesPerView={4}
@@ -59,11 +61,11 @@ export default function ListingForHomePage() {
           breakpoints={{
             340: {
               width: 200,
-              slidesPerView: 1,
+              slidesPerView: 1.2,
             },
             768: {
               width: 768,
-              slidesPerView: 2,
+              slidesPerView: 1,
             },
             1040: {
               width: 1040,
@@ -78,7 +80,7 @@ export default function ListingForHomePage() {
           {homeListing.map((listing) => {
             return (
               <div key={listing.id}>
-                <SwiperSlide>
+                <SwiperSlide className={styles.swiperSlide}>
                   <Link to="/listing" className="cursor-pointer">
                     <img
                       src={listing?.imgUrls[0]}

@@ -4,7 +4,7 @@ import Hero from "../components/Hero"
 import Testimonial from "../components/Testimonial"
 import BlogCard from "../components/BlogCard"
 import Navbar from '../components/Navbar'
-import ListingForHomePage from '../components/listForHomePage/ListingForHomePage'
+import ListingForHomePage from '../components/listingForHomePage/Lis'
 
 export default function Home() {
   return (
