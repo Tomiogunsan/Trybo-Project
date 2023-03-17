@@ -116,7 +116,7 @@ export default function AllListing() {
             </div>
             <p className='md:text-right md:mt-10 mt-[4px] text-sm text-gray-500'>Free cancellation up to 7 days</p>
             <div className='flex lg:justify-between mt-4'>
-              <button className='flex items-center p-2' onClick={() => upvote(listing?.id)}>
+              <button className='flex items-center p' onClick={() => upvote(listing?.id)}>
                 <AiTwotoneStar className='text-yellow-600 text-xl' />
                 <p >{listing?.vote}</p>
               </button>
