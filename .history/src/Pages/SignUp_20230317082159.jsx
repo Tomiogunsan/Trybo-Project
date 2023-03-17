@@ -47,7 +47,7 @@ export default function SignUpComponent() {
       }
     })
     setErrors(error)
-    
+    console.log('trigerred')
     return validated
   }
 
@@ -100,9 +100,9 @@ export default function SignUpComponent() {
           </h2>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col items-center justify-center  w-full"
+            className="flex flex-col items-center justify-center w-full"
           >
-            <div className=" mt-4 mb-[12px] border border-[#556987] p-4 rounded-sm  w-full  md:w-[50%]">
+            <div className=" mt-4 mb-4 border border-[#556987] p-4 rounded-sm  w-full flex  md:w-[50%]">
               <input
                 type="email"
                 id="email"
@@ -114,12 +114,12 @@ export default function SignUpComponent() {
               
             </div>
             {errors.email && (
-                <span className="text-red-600 mb-2 text-sm capitalize">
+                <span className="text-red-600  text-sm capitalize">
                   {errors.email}
                 </span>
               )}
 
-            <div className="border border-[#556987] mb-[12px] p-4 rounded-sm  w-full md:w-[50%] ">
+            <div className="border border-[#556987] p-4 rounded-sm mb-4 w-full md:w-[50%] ">
               <input
                 type="text"
                 id="name"
@@ -131,12 +131,12 @@ export default function SignUpComponent() {
              
             </div>
             {errors.name && (
-                <span className="text-red-600 mb-2 text-sm capitalize">
+                <span className="text-red-600 text-sm capitalize">
                   {errors.name}
                 </span>
               )}
 
-            <div className=" relative mb-[12px] border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] ">
+            <div className=" relative border border-[#556987] p-4 rounded-sm mb-6 w-full md:w-[50%] ">
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
@@ -159,7 +159,7 @@ export default function SignUpComponent() {
              
             </div>
             {errors.password && (
-                <p className="text-red-600 mb-4 text-sm capitalize">
+                <p className="text-red-600 text-sm capitalize">
                   {errors.password}
                 </p>
               )}

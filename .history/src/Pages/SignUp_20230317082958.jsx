@@ -136,7 +136,7 @@ export default function SignUpComponent() {
                 </span>
               )}
 
-            <div className=" relative mb-[12px] border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] ">
+            <div className=" relative mb-[10px] border border-[#556987] p-4 rounded-sm  w-full md:w-[50%] ">
               <input
                 type={showPassword ? 'text' : 'password'}
                 id="password"
@@ -159,7 +159,7 @@ export default function SignUpComponent() {
              
             </div>
             {errors.password && (
-                <p className="text-red-600 mb-4 text-sm capitalize">
+                <p className="text-red-600 mb-6 text-sm capitalize">
                   {errors.password}
                 </p>
               )}

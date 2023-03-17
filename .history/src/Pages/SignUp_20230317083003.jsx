@@ -159,7 +159,7 @@ export default function SignUpComponent() {
              
             </div>
             {errors.password && (
-                <p className="text-red-600 mb-4 text-sm capitalize">
+                <p className="text-red-600 mb-6 text-sm capitalize">
                   {errors.password}
                 </p>
               )}

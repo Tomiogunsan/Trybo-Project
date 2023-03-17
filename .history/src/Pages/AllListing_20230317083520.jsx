@@ -84,10 +84,10 @@ export default function AllListing() {
       }
 
       useCallback(() => {
-        upvote()
-      }, [])
+
+      }, )
    
-      // console.log(homeListing);
+      console.log(homeListing);
  
   return (
     <>
@@ -116,10 +116,10 @@ export default function AllListing() {
             </div>
             <p className='md:text-right md:mt-10 mt-[4px] text-sm text-gray-500'>Free cancellation up to 7 days</p>
             <div className='flex lg:justify-between mt-4'>
-              <button className='flex items-center' onClick={() => upvote(listing?.id)}>
-                <AiTwotoneStar className='text-yellow-600 text-xl' />
+              <div className='flex items-center'>
+                <AiTwotoneStar className='text-yellow-600 text-xl' onClick={() => upvote(listing?.id)}/>
                 <p >{listing?.vote}</p>
-              </button>
+              </div>
               <div className='lg:border lg:border-blue-800 px-4 py-2 rounded-lg text-sm'>₦{listing.price} per Night</div>
             </div>
             </div>
