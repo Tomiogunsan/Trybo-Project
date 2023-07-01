@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Container from '../Container'
 import {
   collection,
@@ -16,6 +16,8 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { Link } from 'react-router-dom'
 import styles from './ListingForHomePage.module.css'
+import {BsFillArrowRightCircleFill} from 'react-icons/bs'
+import {BsFillArrowLeftCircleFill }from "react-icons/bs";
 
 export default function ListingForHomePage() {
   const [homeListing, setHomeListing] = useState([])
@@ -44,6 +46,32 @@ export default function ListingForHomePage() {
     }
     fetchListings()
   }, [])
+
+   const [, setArrowDisable] = useState(true);
+
+  const elementRef = useRef(null)
+  const cardRef = useRef(null)
+  const handleHorizantalScroll = (
+    element,
+    speed,
+    distance,
+    step
+  ) => {
+    let scrollAmount = 0;
+    const slideTimer = setInterval(() => {
+      element.scrollLeft += step;
+      scrollAmount += Math.abs(step);
+      if (scrollAmount >= distance) {
+        clearInterval(slideTimer);
+      }
+      if (element.scrollLeft === 0) {
+        setArrowDisable(true);
+      } else {
+        setArrowDisable(false);
+      }
+    }, speed);
+    console.log('clikc')
+  };
   return (
     <Container>
       <div className="  mt-36 px-4 text-[#404040]">
@@ -51,13 +79,35 @@ export default function ListingForHomePage() {
           Find spaces that suit your style
         </h1>
         {/* <div className='grid grid-cols-4 '> */}
+
+        <div className="flex justify-end mb-6 gap-2">
+          <div
+            onClick={() => {
+              handleHorizantalScroll(elementRef.current, 5, 100, -10);
+            }}
+          >
+            <BsFillArrowLeftCircleFill className="text-[60px]" />
+          </div>
+          <div
+            onClick={() => {
+              handleHorizantalScroll(elementRef.current, 5, 100, 10);
+            }}
+          >
+            <BsFillArrowRightCircleFill className="text-[60px]" />
+          </div>
+        </div>
         <div
           // install Swiper modules
-         className='grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-4'
+           className="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 gap-4"
+          // className='flex flex-col lg:flex-row'
+          ref={elementRef}
+          style={{
+            scrollbarWidth: "none",
+          }}
         >
           {homeListing.map((listing) => {
             return (
-              <div key={listing.id}>
+              <div key={listing.id} ref={cardRef}>
                 <div className={styles.swiperSlide}>
                   <Link to="/listing" className="cursor-pointer">
                     <img
@@ -71,11 +121,11 @@ export default function ListingForHomePage() {
                   </Link>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
         {/* </div> */}
       </div>
     </Container>
-  )
+  );
 }
