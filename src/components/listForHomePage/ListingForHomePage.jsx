@@ -18,7 +18,6 @@ import "swiper/css/navigation";
 import { Link } from "react-router-dom";
 import styles from "./ListingForHomePage.module.css";
 
-
 export default function ListingForHomePage() {
   const [homeListing, setHomeListing] = useState([]);
   useEffect(() => {
@@ -46,13 +45,43 @@ export default function ListingForHomePage() {
     fetchListings();
   }, []);
 
+ 
+  const img = homeListing && homeListing.map((item) => item?.imgUrls[0]);
+  // console.log(img);
+  const [currImg, setCurrImg] = useState(0);
+  const handleNextSlide = () => {
+    setCurrImg((prevIndex) => (prevIndex + 1) % img.length);
+    console.log('click')
+
+  };
+  console.log(currImg)
+
   return (
     <Container>
       <div className="  mt-36 px-4 text-[#404040]">
         <h1 className=" text-2xl md:text-3xl font-semibold mb-9">
           Find spaces that suit your style
         </h1>
-       
+        {/* <div className="relative">
+          <div className="flex  overflow-hidden ">
+            {img.map((item, i) => (
+              <div key={i}  className="absolute w-full">
+                <img
+                  src={item}
+                  alt="a house"
+                  className={` h-[300px] w-full transform ease duration-150 ${i === currImg ? 'translateX-[-100%]' : ''}`}
+                />
+                <div
+                  style={{ backgroundImage: `url(${item})` }}
+                  className={` w-full h-[300px] transform ease duration-150 bg-cover bg-no-repeat ${
+                    i === currImg ? "translateX-[-100%]" : ""
+                  }`} */}
+                {/* />
+              </div>
+            ))}
+          </div>
+          <button className="z-10 absolute top-[50%]" onClick={handleNextSlide}>Next</button>
+        </div> */}
 
         <div className=" w-full hidden lg:block">
           <div className="">
@@ -62,7 +91,7 @@ export default function ListingForHomePage() {
               slidesPerView={3}
               navigation
               pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
+              // scrollbar={{ draggable: true }}
               onSwiper={(swiper) => {}}
               onSlideChange={() => {}}
             >
@@ -71,7 +100,10 @@ export default function ListingForHomePage() {
                   <div key={listing.id}>
                     <SwiperSlide>
                       <div className={styles.swiperSlide}>
-                        <Link to="/listing" className="cursor-pointer">
+                        <Link
+                          to={`/listing/${listing.id}`}
+                          className="cursor-pointer"
+                        >
                           <img
                             src={listing?.imgUrls[0]}
                             alt="an apartment"
@@ -99,7 +131,7 @@ export default function ListingForHomePage() {
                 <img
                   src={listing?.imgUrls[0]}
                   alt="an apartment"
-                   className=" rounded-md"
+                  className=" rounded-md"
                 />
                 <p className=" font-medium text-lg pt-2 mb-8 w-[95%]  truncate">
                   {listing.name}
