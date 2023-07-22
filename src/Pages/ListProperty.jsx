@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import house from '../Assets/house-illustration.png'
 import SubHeader from '../components/SubHeader'
-// import 'react-phone-number-input/style.css'
+
 import PhoneInput from 'react-phone-number-input'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from "uuid";
@@ -111,16 +111,7 @@ function validation(data){
       error[field] = `${field} is required`
       validated = false
     }
-    // if(field === 'parking'){
-    //   if(data[field] === false){
-    //     error[field] = `${field} is required`
-    //   }
-    // }
-    // if(field === 'furnished'){
-    //   if(data[field] === false){
-    //     error[field] = `${field} is required`
-    //   }
-    // }
+  
   })
   setErrors(error)
   

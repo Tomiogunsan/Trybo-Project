@@ -140,16 +140,7 @@ function validation(data){
       error[field] = `${field} is required`
       validated = false
     }
-    // if(field === 'parking'){
-    //   if(data[field] === false){
-    //     error[field] = `${field} is required`
-    //   }
-    // }
-    // if(field === 'furnished'){
-    //   if(data[field] === false){
-    //     error[field] = `${field} is required`
-    //   }
-    // }
+    
   })
   setErrors(error)
   

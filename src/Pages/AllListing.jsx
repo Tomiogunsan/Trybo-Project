@@ -1,7 +1,6 @@
 import { collection, doc, getDocs, orderBy, query, updateDoc, limit, startAfter} from 'firebase/firestore'
 import React, { useCallback, useEffect, useState } from 'react'
-import Container from '../components/Container'
-import Navbar from '../components/Navbar'
+
 import SubHeader from '../components/SubHeader'
 import { db } from '../firebase'
 import {AiTwotoneStar} from 'react-icons/ai'
@@ -83,11 +82,11 @@ export default function AllListing() {
         fetchListings()
       }
 
-      useCallback(() => {
-        upvote()
-      }, [])
+      // useCallback(() => {
+      //   upvote()
+      // }, [])
    
-      // console.log(homeListing);
+    
  
   return (
     <>

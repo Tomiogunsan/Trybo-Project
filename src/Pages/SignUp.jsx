@@ -33,7 +33,7 @@ export default function SignUpComponent() {
       ...prev,
       [e.target.id]: e.target.value,
     }))
-    // console.log(e.target.value)
+   
   }
 
   function validation(data) {
@@ -79,7 +79,7 @@ export default function SignUpComponent() {
       setLoading(true)
       await setDoc(doc(db, 'users', user.uid), formDataCopy)
       setLoading(false)
-      // toast.success('sign up was sucessful')
+     
 
       navigate('/')
     } catch (error) {

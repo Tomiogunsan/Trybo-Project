@@ -42,7 +42,7 @@ export default function Listing(props) {
         setLoading(false)
       }
     }
-    console.log(bookingDetails);
+   
     fetchListing()
   }, [params.listingId])
 

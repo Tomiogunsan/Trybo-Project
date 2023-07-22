@@ -12,10 +12,10 @@ export default function OtherFormOfAuth() {
   async function onGoogleClick() {
     try {
       const auth = getAuth()
-      // console.log(auth);
+      
       const provider = new GoogleAuthProvider()
       const result = await signInWithPopup(auth, provider)
-      // console.log(result)
+     
       const user = result.user
 
       // check for user
