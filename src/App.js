@@ -1,19 +1,21 @@
 import React, { useState , lazy} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Help = lazy(() => import("./Pages/Help"));
 const Home = lazy(() => import ('./Pages/Home'))
 const SignIn = lazy(() => import ('./Pages/SignIn'))
 const SignUp = lazy(() => import ('./Pages/SignUp'))
 const ListProperty = lazy(() =>import  ('./Pages/ListProperty'))
+const ForgotPassword = lazy(() => import ('./Pages/ForgotPassword'))
+const Welcome = lazy(() =>import ('./Pages/Welcome'))
+const Profile = lazy(() => import('./Pages/Profile'))
+const PrivateRoute = lazy(() => import ('./components/PrivateRoute'))
+const EditListing = lazy(() => import("./Pages/EditListing"));
+const Blog = lazy(() => import('./Pages/Blog'))
 
-import ForgotPassword from './Pages/ForgotPassword'
-import Welcome from './Pages/Welcome'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import Profile from './Pages/Profile'
-import PrivateRoute from './components/PrivateRoute'
-import EditListing from './Pages/EditListing'
-import Blog from './Pages/Blog'
+ 
+import Blog from 
 import ListingItem from './Pages/ListingItem'
 import BookingDetails from './components/BookingDetails'
 import AllListing from './Pages/AllListing'
