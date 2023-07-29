@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState , lazy} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Help from './Pages/Help'
-import Home from './Pages/Home'
-import SignIn from './Pages/SignIn'
-import SignUp from  './Pages/SignUp'
-import ListProperty from './Pages/ListProperty'
+const Help = lazy(() => import("./Pages/Help"));
+const Home = lazy(() => import ('./Pages/Home'))
+const SignIn = lazy(() => import ('./Pages/SignIn'))
+const SignUp = lazy(() => import ('./Pages/SignUp'))
+const ListProperty = lazy(() =>import  ('./Pages/ListProperty'))
+
 import ForgotPassword from './Pages/ForgotPassword'
 import Welcome from './Pages/Welcome'
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,6 +17,7 @@ import Blog from './Pages/Blog'
 import ListingItem from './Pages/ListingItem'
 import BookingDetails from './components/BookingDetails'
 import AllListing from './Pages/AllListing'
+
 
 
 
