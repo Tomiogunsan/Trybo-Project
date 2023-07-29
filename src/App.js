@@ -13,12 +13,12 @@ const Profile = lazy(() => import('./Pages/Profile'))
 const PrivateRoute = lazy(() => import ('./components/PrivateRoute'))
 const EditListing = lazy(() => import("./Pages/EditListing"));
 const Blog = lazy(() => import('./Pages/Blog'))
+const ListingItem = lazy(() => import("./Pages/ListingItem"));
+const BookingDetails = lazy(() => import("./components/BookingDetails"));
+const AllListing = lazy(() => import("./Pages/AllListing"));
+  
 
- 
-import Blog from 
-import ListingItem from './Pages/ListingItem'
-import BookingDetails from './components/BookingDetails'
-import AllListing from './Pages/AllListing'
+
 
 
 
@@ -35,7 +35,7 @@ function App() {
     setShowDetails(false)
   }
 
-  console.log(process.env)
+  
 
   return <>
     

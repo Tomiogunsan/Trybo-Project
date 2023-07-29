@@ -101,7 +101,7 @@ export default function ListingForHomePage() {
                     <SwiperSlide>
                       <div className={styles.swiperSlide}>
                         <Link
-                          to={`/listing/${listing.id}`}
+                          to={"/listing"}
                           className="cursor-pointer"
                         >
                           <img

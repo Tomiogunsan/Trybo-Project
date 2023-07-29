@@ -113,13 +113,15 @@ export default function AllListing() {
               <p className='ml-[4px] text-sm'>{listing.bathroom > 1 ? `${listing.bathroom} Baths` : "1 Bath"}</p>
               
             </div>
-            <p className='md:text-right md:mt-10 mt-[4px] text-sm text-gray-500'>Free cancellation up to 7 days</p>
-            <div className='flex lg:justify-between mt-4'>
-              <button className='flex items-center p-2' onClick={() => upvote(listing?.id)}>
+            <p className='  mt-[4px] text-sm text-gray-500'>Free cancellation up to 7 days</p>
+            <div className='flex lg:justify-between mt-2'>
+              {/* <button className='flex items-center p-2' 
+               onClick={() => upvote(listing?.id)}
+              >
                 <AiTwotoneStar className='text-yellow-600 text-xl' />
                 <p >{listing?.vote}</p>
-              </button>
-              <div className='lg:border lg:border-blue-800 px-4 py-2 rounded-lg text-sm'>₦{listing.price} per Night</div>
+              </button> */}
+              <div className='border border-blue-800 px-4 py-2 rounded-lg text-sm mb-4'>₦{listing.price} per Night</div>
             </div>
             </div>
             
